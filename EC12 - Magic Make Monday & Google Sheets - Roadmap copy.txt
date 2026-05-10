@@ -23,6 +23,10 @@ Interaction: Assign route
 * Select routes required, red mark until passengers (“Artist Party Travel” Members) are assigned or created.
 * Yellow mark remains until luggage is selected
 
+Interaction: Publish routes
+* once the routes are created and checked, they can be published from Monday to the Transfers google sheet
+* suggested timings are added depending on recommended travel time and the type of route
+* once the transfer status changes to "Scheduled" or "confirmed" on the google sheet, the timings become available in the portal and the itinerary
 
 Interaction: Artist Travel Party Member Placeholder
 * When adding a number of people in a travel party, an option is offered to create all Travel Party Members from a list of names or a file. 
@@ -41,7 +45,8 @@ Rule: Artist Linking
 
 
 Progress Bar
-* Depending on the phases and the 
+* Depending on the phases described in the steps of advancing and the fields marked as complete, the progress bar is updated from red, to amber and to green. 
+* Progress bar can go back to red if no changes are operated in the key fields of the earlier stages. 
 
 
 

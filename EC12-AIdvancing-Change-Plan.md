@@ -7,8 +7,9 @@ The **AIdvancing Portal** is the interaction layer for the EC12 event management
 This change plan covers the full build-out, structured as four sequential delivery layers. Each layer must be stable before the next begins. The feature interactions and user stories from the EC11 Roadmap and EC12 Team Feedback are delivered in Layer 4.
 
 **Sources:**
-- `EC11 - Magic Make Monday & Google Sheets - Roadmap copy.txt` — interactions and user stories from the previous edition
+- `EC12 - Magic Make Monday & Google Sheets - Roadmap copy.txt` — portal interactions, user stories, and phase-linked progress bar spec
 - `EC12 - Monday - Team feedback user stories copy.txt` — EC12 team feedback and desired end states
+- `Steps of advancing.txt` — canonical 8-step workflow (Step 0–7), alternating EC ↔ Tour Manager
 - `plan-ec12MondayStructure.prompt.md` — full field map, board IDs, navigation structure, file manifest
 - `EC12 AIdvancing Portal Design V3 copy.html` — design reference
 
@@ -64,16 +65,27 @@ Users log in to the portal. Access is role-restricted so team members only see w
 
 ---
 
-### Issue 1.4 — Steps of Advancing: reference integration
-The portal must follow the Steps of Advancing workflow document as the canonical guide for what Advancing Leads do and in what order.
+### Issue 1.4 — Steps of Advancing: phase-to-field mapping
+Document `Steps of advancing.txt` is the canonical workflow. It defines 8 phases (Step 0–7) alternating between EC and Tour Manager. This mapping drives the progress bar and phase-aware email.
 
-- Obtain/confirm the current Steps of Advancing document
-- Map each step to: which Monday fields are read/written, which portal view or interaction handles it
-- This mapping becomes the source of truth for the progress bar (Layer 4, Issue 4B.1) and phase-aware email (Layer 4, Issue 4E.1)
+**Phase summary and key Monday fields per step:**
+
+| Step | Owner | Name | Key fields that mark it complete |
+|------|-------|------|----------------------------------|
+| 0 | EC | Hospitality KO | Advancing Status = Advancing KO; Artist Pack Link populated |
+| 1 | EC | First email — Intro + RFI 1 | Email Draft status = Sent; CC Monday item email fired |
+| 2 | TM | TM provides info | Rider file attached; Party sizes set; Hotel Timeline set; Flights linked |
+| 2i | Internal | Update Monday | Hotel confirmed; Rider Alternatives sheet populated |
+| 3 | EC | Confirmations + On-the-ground | Hotel Status = Confirmed; DR Requested set; Transport options communicated |
+| 4 | TM | Flights, rooming list, dietary | Flights linked to Artist Party; Rooming List filled; Allergies confirmed; Rider alt approval |
+| 5 | EC | Itinerary V1 + Transport intro | Itinerary Status = V1 Sent; Angel contact shared; Transfers = Scheduled; Catering plan sent |
+| 6 | TM | Guest list + meal times | Guest List confirmed; Meal times on record; Rider alt approval complete |
+| 7 | EC | Advancing complete | Final itinerary sent; Backstage Manager intro done; All transfers confirmed |
 
 **Acceptance criteria:**
-- Steps of Advancing document is linked in the repo (or summarised in `ADVANCING_STEPS.md`)
-- Each step has a corresponding portal interaction or view identified
+- `Steps of advancing.txt` committed to repo root
+- Each step's completion fields documented and used by progress bar (Issue 4B.1) and email cadence (Issue 4H.1)
+- Q2 (open question) resolved — document is in repo, owned by Product Owner
 
 ---
 
@@ -244,8 +256,16 @@ All stages: Capacity, Schedule, Stage Manager, Backstage Manager, role connectio
 ### Epic 4B — Advancing Tracker Interactions
 
 **Issue 4B.1 — Progress bar per artist (Steps of Advancing)**  
-Visual 7-phase progress bar per artist row derived from Steps of Advancing mapping (from Issue 1.4). Click segment to jump to relevant tab.  
-*Source:* EC11 Roadmap
+Visual progress bar per artist row, 8 segments (Step 0–7), driven by the field completion mapping in Issue 1.4.
+
+Colour logic:
+- **Red** — step not started or key fields from an earlier step have gone stale/blank
+- **Amber** — step in progress (some fields filled, not all)
+- **Green** — all completion fields for that step are populated
+
+The bar can regress: if a key field from Step 2 is cleared after Step 5 is reached, Steps 2+ revert to red. Click a segment to jump to the relevant tracker tab or drawer tab.
+
+*Source:* EC12 Roadmap (updated progress bar spec)
 
 **Issue 4B.2 — Outstanding items badge + summary panel**  
 Count of unfilled required fields shown as chip on each artist row. Click opens summary (not full drawer).  
@@ -282,7 +302,22 @@ Routes write to Transfers board (18412445611).
 
 **Issue 4D.3 — Assign passengers to routes (Artist Party members + placeholders)**  
 Passengers selectable from Artist Party linked to artist. Passengers count populates Transfer Passengers field.  
-*Source:* EC11 Roadmap
+*Source:* EC12 Roadmap
+
+**Issue 4D.4 — Publish Routes: Monday → Google Sheets sync + suggested timings**  
+Once routes are created and reviewed, an Advancing Lead or Transport Coordinator can publish them.
+
+On publish:
+1. All Transfer records with status = Complete are pushed to the Transfers Google Sheet
+2. Suggested timings are calculated and added per route, based on: recommended travel time for the route type (e.g. Airport→Hotel, Hotel→Show) + the associated flight or show time
+3. Transfer Status in Monday updates to "Published"
+
+Sync-back:
+- When a transfer row in the Google Sheet is marked "Scheduled" or "Confirmed", the status syncs back to Monday
+- Once confirmed, the transfer timing becomes available in the portal (Transport Coordinator view, Itinerary)
+
+*Open question:* Google Sheets sync mechanism — Monday automation, Zapier/Make, or direct Sheets API from portal? Decide before implementation.  
+*Source:* EC12 Roadmap (new interaction)
 
 ---
 
@@ -337,8 +372,18 @@ Meals fields removed from itinerary sent to Tour Managers. Meals remain in Hospi
 ### Epic 4H — Email Generation (magic.email)
 
 **Issue 4H.1 — Phase-aware email draft with missing datapoints**  
-Missing datapoints panel scans artist record and flags gaps per phase. "Insert missing items" button appends formatted list to draft. Cadence selector (First-touch / Chase / Confirm / Final Brief) determines which gaps are highlighted.  
-*Source:* EC11 Roadmap — "email draft for the phase I'm in, that reminds me of missing datapoints"
+The email cadence selector maps directly to the Steps of Advancing:
+
+| Cadence | Maps to step | What the email covers |
+|---------|-------------|----------------------|
+| First-touch | Step 1 | Intro + RFI 1 (rider, party size, hotel, flights, merch, brochure) |
+| Chase | Step 1 (repeat) | Chase outstanding Step 2 items from TM |
+| Confirmations | Step 3 | Hotel confirmed, rider negotiation, on-the-ground brief |
+| Itinerary + Transport | Step 5 | Itinerary V1, angel intro, transport intro, menus |
+| Final brief | Step 7 | Final itinerary, all contacts, transfers confirmed |
+
+Missing datapoints panel scans the artist record against the step's required fields (from Issue 1.4 mapping) and flags gaps. "Insert missing items" button appends a formatted list to the draft body.  
+*Source:* EC12 Roadmap + Steps of Advancing
 
 ---
 
@@ -383,8 +428,9 @@ On meal assignment, create subitem `[Artist Name] — [Meal Type]` under artist.
 | # | Question | Blocks |
 |---|----------|--------|
 | Q1 | Auth method: Monday OAuth, email/password, or passkey? | Issue 1.3 |
-| Q2 | Steps of Advancing document — where does it live / who owns it? | Issue 1.4 |
+| Q2 | ~~Steps of Advancing document — where does it live?~~ **Resolved** — `Steps of advancing.txt` in repo, 8 steps mapped in Issue 1.4 | Issue 1.4 ✓ |
 | Q3 | Transfers in itinerary: real-time read or snapshot? | Issue 4G.3 |
+| Q8 | Publish Routes sync mechanism: Monday automation, Zapier/Make, or Sheets API direct? | Issue 4D.4 |
 | Q4 | Multi-stage artists: multiple `Live Stage Slot` relations or separate field? | Issue 4G.4 |
 | Q5 | Placeholder bulk-replace matching field: Role / sequential / manual UI? | Issue 4E.2 |
 | Q6 | Google Drive auth: which service account owns the folder structure? | Issue 4C.1 |
