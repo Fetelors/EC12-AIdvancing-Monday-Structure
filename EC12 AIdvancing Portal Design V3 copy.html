@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AIdvancing · EC12 Hospitality</title>
+  <meta name="viewport" content="width=1440">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="portal/theme-v2.css">
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#f5f3ee"/>
+      <circle cx="35" cy="40" r="22" fill="#0aa39a" opacity="0.5"/>
+      <circle cx="65" cy="55" r="20" fill="#a3d437" opacity="0.5"/>
+      <circle cx="50" cy="68" r="18" fill="#2563eb" opacity="0.4"/>
+    </svg>
+  </template>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Data + i18n -->
+  <script src="portal/data-v2.js"></script>
+  <script src="portal/i18n.js"></script>
+
+  <!-- React + Babel -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Tweaks panel kit -->
+  <script type="text/babel" src="portal/tweaks-panel.jsx"></script>
+
+  <!-- Components + views -->
+  <script type="text/babel" src="portal/components.jsx"></script>
+  <script type="text/babel" src="portal/view-tracker.jsx"></script>
+  <script type="text/babel" src="portal/view-drawer.jsx"></script>
+  <script type="text/babel" src="portal/view-email.jsx"></script>
+  <script type="text/babel" src="portal/view-arrivals.jsx"></script>
+  <script type="text/babel" src="portal/view-itinerary.jsx"></script>
+  <script type="text/babel" src="portal/view-settings.jsx"></script>
+  <script type="text/babel" src="portal/view-sections.jsx"></script>
+  <script type="text/babel" src="portal/view-vehicles.jsx"></script>
+
+  <!-- App -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo } = React;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "lang": "en",
+      "blobIntensity": 66,
+      "blobMotion": true,
+      "darkMode": false,
+      "accentTeal": "#0aa39a",
+      "accentLime": "#a9da3e",
+      "accentBlue": "#2563eb"
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const tt = window.makeT(t.lang);
+
+      // Routing in URL hash: section.subsection (e.g. tracker.travel)
+      const [route, setRoute] = useState(() => {
+        const h = window.location.hash.replace('#','');
+        if (!h) return 'tracker.travel';
+        // Migrate legacy hashes
+        if (h === 'tracker')   return 'tracker.travel';
+        if (h === 'email')     return 'magic.email';
+        if (h === 'arrivals')  return 'reports.flights';
+        if (h === 'itinerary') return 'reports.itineraries';
+        if (h === 'timeline')  return 'stage';
+        if (h === 'schedule')  return 'stage';
+        if (h === 'flights')   return 'databases.flights';
+        return h;
+      });
+      const [drawerArtistId, setDrawerArtistId] = useState(null);
+      const [emailInitial, setEmailInitial] = useState(null);
+      const [itinInitial, setItinInitial] = useState(null);
+
+      // Hash sync
+      useEffect(() => {
+        const onHash = () => setRoute(window.location.hash.replace('#','') || 'tracker');
+        window.addEventListener('hashchange', onHash);
+        return () => window.removeEventListener('hashchange', onHash);
+      }, []);
+
+      const navigate = (r, payload) => {
+        if (r === 'email') setEmailInitial(payload || null);
+        if (r === 'itinerary') setItinInitial(payload || null);
+        setDrawerArtistId(null);
+        window.location.hash = r;
+      };
+
+      // Apply theme on mount + on tweak change
+      useEffect(() => { applyAppTheme(t); }, [
+        t.darkMode, t.blobIntensity, t.blobMotion, t.accentTeal, t.accentLime, t.accentBlue,
+      ]);
+
+      return (
+        <div className="stage">
+          <Blobs/>
+          <div className="content">
+            <TopNav active={route} onNav={navigate} t={tt}/>
+
+            {(() => {
+              const r = parseRoute(route);
+              if (r.section === 'tracker' && r.sub === 'travel')        return <TravelSubview        t={tt} onOpenArtist={setDrawerArtistId}/>;
+              if (r.section === 'tracker' && r.sub === 'accommodation') return <AccommodationSubview t={tt} onOpenArtist={setDrawerArtistId}/>;
+              if (r.section === 'tracker' && r.sub === 'hospitality')   return <HospitalitySubview   t={tt} onOpenArtist={setDrawerArtistId}/>;
+              if (r.section === 'magic'   && r.sub === 'email')         return <EmailView t={tt} initialArtistId={emailInitial} onOpenArtist={setDrawerArtistId}/>;
+              if (r.section === 'stage')                                return <StageScheduleView t={tt}/>;
+              if (r.section === 'reports')                              return <ReportsView t={tt} sub={r.sub} onOpenArtist={setDrawerArtistId}/>;
+              if (r.section === 'databases')                            return <DatabasesView t={tt} sub={r.sub} onOpenArtist={setDrawerArtistId}/>;
+              if (r.section === 'settings')                             return <SettingsView t={tt}/>;
+              return null;
+            })()}
+
+            <PageFoot t={tt}/>
+          </div>
+
+          {drawerArtistId && (
+            <ArtistDrawer
+              artist={window.ARTISTS.find(a => a.id === drawerArtistId)}
+              t={tt}
+              onClose={() => setDrawerArtistId(null)}
+              onNav={(view, id) => { setDrawerArtistId(null); navigate(view, id); }}
+            />
+          )}
+
+          {/* Tweaks */}
+          <TweaksPanel title="Tweaks">
+            <TweakSection label="Language"/>
+            <TweakRadio label="Display"
+              value={t.lang}
+              options={['en','ro']}
+              onChange={(v) => setTweak('lang', v)}/>
+
+            <TweakSection label="Background"/>
+            <TweakSlider label="Blob intensity"
+              value={t.blobIntensity} min={0} max={80} unit="%"
+              onChange={(v) => setTweak('blobIntensity', v)}/>
+            <TweakToggle label="Drift motion"
+              value={t.blobMotion}
+              onChange={(v) => setTweak('blobMotion', v)}/>
+            <TweakToggle label="Dark mode"
+              value={t.darkMode}
+              onChange={(v) => setTweak('darkMode', v)}/>
+
+            <TweakSection label="Accents"/>
+            <TweakColor label="Teal" value={t.accentTeal} onChange={(v) => setTweak('accentTeal', v)}/>
+            <TweakColor label="Lime" value={t.accentLime} onChange={(v) => setTweak('accentLime', v)}/>
+            <TweakColor label="Blue" value={t.accentBlue} onChange={(v) => setTweak('accentBlue', v)}/>
+          </TweaksPanel>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>

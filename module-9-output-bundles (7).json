@@ -1,0 +1,263 @@
+[
+    {
+        "id": "18412445608",
+        "name": "EC12** - Hotel Rooms",
+        "type": "board",
+        "description": null,
+        "state": "active",
+        "board_folder_id": "20390454",
+        "board_kind": "public",
+        "columns": [
+            {
+                "id": "name",
+                "type": "name",
+                "title": "Name",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "person",
+                "type": "people",
+                "title": "Person",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "status",
+                "type": "status",
+                "title": "Status",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 0,
+                            "label": "Working on it",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#fdab3d"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Done",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 2,
+                            "label": "Stuck",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#df2f4a"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":0,\"1\":1,\"2\":2},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":0,\"1\":2,\"2\":1},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#df2f4a\"}}}"
+            },
+            {
+                "id": "text_mm366mby",
+                "type": "text",
+                "title": "Hotel Door Number",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text_mm36nvxr",
+                "type": "text",
+                "title": "Hotel Room Floor",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "file_mkxd25zw",
+                "type": "file",
+                "title": "File",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "boolean_mkxd9kmj",
+                "type": "checkbox",
+                "title": "Bathtub",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "boolean_mkxd4rbg",
+                "type": "checkbox",
+                "title": "Balcony",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "board_relation_mkxdn254",
+                "type": "board_relation",
+                "title": "Hotel",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445605
+                    ],
+                    "boardId": null
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445605],\"boardId\":null}"
+            },
+            {
+                "id": "board_relation_mm2byzk4",
+                "type": "board_relation",
+                "title": "Person in Room",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445609
+                    ],
+                    "boardId": null
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445609],\"boardId\":null}"
+            },
+            {
+                "id": "lookup_mm2bnj1g",
+                "type": "mirror",
+                "title": "Artist in Room",
+                "settings": {
+                    "relation_column": {
+                        "board_relation_mm2byzk4": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445609",
+                            "column_ids": [
+                                "board_relation_mksce4jt"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation_mm2byzk4\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445609\":[\"board_relation_mksce4jt\"]}}"
+            },
+            {
+                "id": "lookup_mm2bmrk6",
+                "type": "mirror",
+                "title": "People Timeline",
+                "settings": {
+                    "relation_column": {
+                        "board_relation_mm2byzk4": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445609",
+                            "column_ids": [
+                                "timerange_mm2bhjbp"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation_mm2byzk4\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445609\":[\"timerange_mm2bhjbp\"]}}"
+            }
+        ],
+        "tags": [],
+        "views": [
+            {
+                "type": "FeatureBoardView",
+                "settings": {
+                    "app_feature_id": 15528052
+                },
+                "view_specific_data_str": "{\"view_url\":\"https://electriccastle.monday.com/app_feature_embedded/15528052/board_view/167849346\",\"mobile_url\":\"https://electriccastle.monday.com/app_feature_embedded/15528052/board_view/167849346?mode=mobile\",\"view_subtype\":\"monday-vibe-app\"}",
+                "name": "Build Vibe view",
+                "id": "256680582"
+            },
+            {
+                "type": null,
+                "settings": {},
+                "view_specific_data_str": "{}",
+                "name": "Customizable view",
+                "id": "256680598"
+            }
+        ],
+        "communication": null,
+        "item_terminology": "Room",
+        "owner": "37877989",
+        "mappable_column_settings": {
+            "name": {},
+            "person": {},
+            "status": {
+                "done_colors": [],
+                "color_mapping": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Working on it",
+                    "1": "Done",
+                    "2": "Stuck"
+                },
+                "labels_positions_v2": {
+                    "0": 0,
+                    "1": 2,
+                    "2": 1
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#fdab3d"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#df2f4a"
+                    }
+                }
+            },
+            "text_mm366mby": {},
+            "text_mm36nvxr": {},
+            "file_mkxd25zw": {},
+            "boolean_mkxd9kmj": {},
+            "boolean_mkxd4rbg": {},
+            "board_relation_mkxdn254": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445605
+                ],
+                "boardId": null
+            },
+            "board_relation_mm2byzk4": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445609
+                ],
+                "boardId": null
+            },
+            "lookup_mm2bnj1g": {
+                "relation_column": {
+                    "board_relation_mm2byzk4": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445609": [
+                        "board_relation_mksce4jt"
+                    ]
+                }
+            },
+            "lookup_mm2bmrk6": {
+                "relation_column": {
+                    "board_relation_mm2byzk4": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445609": [
+                        "timerange_mm2bhjbp"
+                    ]
+                }
+            }
+        }
+    }
+]

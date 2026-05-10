@@ -1,0 +1,1661 @@
+[
+    {
+        "id": "18412445611",
+        "name": "EC12** - Transfers",
+        "type": "board",
+        "description": null,
+        "state": "active",
+        "board_folder_id": "20390454",
+        "board_kind": "public",
+        "columns": [
+            {
+                "id": "name",
+                "type": "name",
+                "title": "Name",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "status__1",
+                "type": "status",
+                "title": "Transfer Status",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 10,
+                            "label": "Route notes added",
+                            "index": 3,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#333333"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Complete",
+                            "index": 4,
+                            "is_done": true,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 2,
+                            "label": "Must check",
+                            "index": 5,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#df2f4a"
+                        },
+                        {
+                            "id": 3,
+                            "color": 8,
+                            "label": "Placeholder",
+                            "index": 6,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#cab641"
+                        },
+                        {
+                            "id": 4,
+                            "color": 160,
+                            "label": "Has Passengers",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#175a63"
+                        },
+                        {
+                            "id": 5,
+                            "color": 5,
+                            "label": "Auto-created",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#c4c4c4"
+                        },
+                        {
+                            "id": 6,
+                            "color": 107,
+                            "label": "Has Date",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#225091"
+                        },
+                        {
+                            "id": 7,
+                            "color": 154,
+                            "label": "Published",
+                            "index": 7,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#a9bee8"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":10,\"1\":1,\"2\":2,\"3\":8,\"4\":160,\"5\":5,\"6\":107,\"7\":154,\"8\":3,\"10\":0,\"107\":6,\"154\":7,\"160\":4},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Route notes added\",\"1\":\"Complete\",\"2\":\"Must check\",\"3\":\"Placeholder\",\"4\":\"Has Passengers\",\"5\":\"Auto-created\",\"6\":\"Has Date\",\"7\":\"Published\"},\"labels_positions_v2\":{\"0\":3,\"1\":4,\"2\":5,\"3\":6,\"4\":2,\"5\":0,\"6\":1,\"7\":7},\"labels_colors\":{\"0\":{\"color\":\"#333333\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#df2f4a\"},\"3\":{\"color\":\"#cab641\"},\"4\":{\"color\":\"#175a63\"},\"5\":{\"color\":\"#c4c4c4\"},\"6\":{\"color\":\"#225091\"},\"7\":{\"color\":\"#a9bee8\"}}}"
+            },
+            {
+                "id": "board_relation__1",
+                "type": "board_relation",
+                "title": "Artist @ Transfer",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445614
+                    ],
+                    "boardId": null
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445614],\"boardId\":null}"
+            },
+            {
+                "id": "mirror120__1",
+                "type": "mirror",
+                "title": "Show Day",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "dropdown1__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"dropdown1__1\"]}}"
+            },
+            {
+                "id": "mirror3__1",
+                "type": "mirror",
+                "title": "Stage",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "board_relation3"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"board_relation3\"]}}"
+            },
+            {
+                "id": "label__1",
+                "type": "status",
+                "title": "Route Type",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 158,
+                            "label": "Airport - Hotel",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#a1e3f6"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Airport - Soundcheck",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 2,
+                            "label": "Airport - Show",
+                            "index": 3,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#df2f4a"
+                        },
+                        {
+                            "id": 3,
+                            "color": 106,
+                            "label": "Airport - City",
+                            "index": 4,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#74afcc"
+                        },
+                        {
+                            "id": 4,
+                            "color": 4,
+                            "label": "Hotel - Show",
+                            "index": 5,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#9d50dd"
+                        },
+                        {
+                            "id": 5,
+                            "color": 5,
+                            "label": "Not specified",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#c4c4c4"
+                        },
+                        {
+                            "id": 6,
+                            "color": 6,
+                            "label": "Hotel - Airport",
+                            "index": 6,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#037f4c"
+                        },
+                        {
+                            "id": 7,
+                            "color": 7,
+                            "label": "Hotel - Soundcheck",
+                            "index": 7,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#579bfc"
+                        },
+                        {
+                            "id": 8,
+                            "color": 12,
+                            "label": "Show - Hotel",
+                            "index": 8,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ff007f"
+                        },
+                        {
+                            "id": 9,
+                            "color": 9,
+                            "label": "Show - Airport",
+                            "index": 9,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ffcb00"
+                        },
+                        {
+                            "id": 10,
+                            "color": 10,
+                            "label": "Soundcheck - Hotel",
+                            "index": 10,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#333333"
+                        },
+                        {
+                            "id": 11,
+                            "color": 11,
+                            "label": "Hotel - Programming",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#bb3354"
+                        },
+                        {
+                            "id": 12,
+                            "color": 8,
+                            "label": "Programming - Hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#cab641"
+                        },
+                        {
+                            "id": 13,
+                            "color": 13,
+                            "label": "Publish Routes",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ff5ac4"
+                        },
+                        {
+                            "id": 14,
+                            "color": 14,
+                            "label": "select new route",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#784bd1"
+                        },
+                        {
+                            "id": 15,
+                            "color": 15,
+                            "label": "Airport - Programming",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#9cd326"
+                        },
+                        {
+                            "id": 16,
+                            "color": 16,
+                            "label": "Hotel - Load in",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#66ccff"
+                        },
+                        {
+                            "id": 17,
+                            "color": 17,
+                            "label": "Load out - Hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#757575"
+                        },
+                        {
+                            "id": 18,
+                            "color": 18,
+                            "label": "Main Stage - Hangar",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#7f5347"
+                        },
+                        {
+                            "id": 19,
+                            "color": 19,
+                            "label": "Hotel - Line check",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ff6d3b"
+                        },
+                        {
+                            "id": 101,
+                            "color": 154,
+                            "label": "Hangar - Main Stage",
+                            "index": 11,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#a9bee8"
+                        },
+                        {
+                            "id": 102,
+                            "color": 102,
+                            "label": "Hotel-Festival",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#faa1f1"
+                        },
+                        {
+                            "id": 103,
+                            "color": 103,
+                            "label": "festival-hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ffadad"
+                        },
+                        {
+                            "id": 104,
+                            "color": 104,
+                            "label": "Hotel - Festival",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#7e3b8a"
+                        },
+                        {
+                            "id": 105,
+                            "color": 105,
+                            "label": "festival - hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#9aadbd"
+                        },
+                        {
+                            "id": 106,
+                            "color": 3,
+                            "label": "Apply Templates",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#007eb5"
+                        },
+                        {
+                            "id": 107,
+                            "color": 107,
+                            "label": "RO",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#225091"
+                        },
+                        {
+                            "id": 108,
+                            "color": 101,
+                            "label": "Artist Village - Main Stage",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ff7575"
+                        },
+                        {
+                            "id": 109,
+                            "color": 109,
+                            "label": "Testing",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#5559df"
+                        },
+                        {
+                            "id": 110,
+                            "color": 110,
+                            "label": "Festival - Hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#401694"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":158,\"1\":1,\"2\":2,\"3\":106,\"4\":4,\"5\":5,\"6\":6,\"7\":7,\"8\":12,\"9\":9,\"10\":10,\"11\":11,\"12\":8,\"13\":13,\"14\":14,\"15\":15,\"16\":16,\"17\":17,\"18\":18,\"19\":19,\"101\":108,\"102\":102,\"103\":103,\"104\":104,\"105\":105,\"106\":3,\"107\":107,\"108\":101,\"109\":109,\"110\":110,\"154\":101,\"158\":0},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Airport - Hotel\",\"1\":\"Airport - Soundcheck\",\"2\":\"Airport - Show\",\"3\":\"Airport - City\",\"4\":\"Hotel - Show\",\"5\":\"Not specified\",\"6\":\"Hotel - Airport\",\"7\":\"Hotel - Soundcheck\",\"8\":\"Show - Hotel\",\"9\":\"Show - Airport\",\"10\":\"Soundcheck - Hotel\",\"11\":\"Hotel - Programming\",\"12\":\"Programming - Hotel\",\"13\":\"Publish Routes\",\"14\":\"select new route\",\"15\":\"Airport - Programming\",\"16\":\"Hotel - Load in\",\"17\":\"Load out - Hotel\",\"18\":\"Main Stage - Hangar\",\"19\":\"Hotel - Line check\",\"101\":\"Hangar - Main Stage\",\"102\":\"Hotel-Festival\",\"103\":\"festival-hotel\",\"104\":\"Hotel - Festival\",\"105\":\"festival - hotel\",\"106\":\"Apply Templates\",\"107\":\"RO\",\"108\":\"Artist Village - Main Stage\",\"109\":\"Testing\",\"110\":\"Festival - Hotel\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":3,\"3\":4,\"4\":5,\"5\":0,\"6\":6,\"7\":7,\"8\":8,\"9\":9,\"10\":10,\"101\":11},\"labels_colors\":{\"0\":{\"color\":\"#a1e3f6\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#df2f4a\"},\"3\":{\"color\":\"#74afcc\"},\"4\":{\"color\":\"#9d50dd\"},\"5\":{\"color\":\"#c4c4c4\"},\"6\":{\"color\":\"#037f4c\"},\"7\":{\"color\":\"#579bfc\"},\"8\":{\"color\":\"#ff007f\"},\"9\":{\"color\":\"#ffcb00\"},\"10\":{\"color\":\"#333333\"},\"11\":{\"color\":\"#bb3354\"},\"12\":{\"color\":\"#cab641\"},\"13\":{\"color\":\"#ff5ac4\"},\"14\":{\"color\":\"#784bd1\"},\"15\":{\"color\":\"#9cd326\"},\"16\":{\"color\":\"#66ccff\"},\"17\":{\"color\":\"#757575\"},\"18\":{\"color\":\"#7f5347\"},\"19\":{\"color\":\"#ff6d3b\"},\"101\":{\"color\":\"#a9bee8\"},\"102\":{\"color\":\"#faa1f1\"},\"103\":{\"color\":\"#ffadad\"},\"104\":{\"color\":\"#7e3b8a\"},\"105\":{\"color\":\"#9aadbd\"},\"106\":{\"color\":\"#007eb5\"},\"107\":{\"color\":\"#225091\"},\"108\":{\"color\":\"#ff7575\"},\"109\":{\"color\":\"#5559df\"},\"110\":{\"color\":\"#401694\"}}}"
+            },
+            {
+                "id": "date__1",
+                "type": "date",
+                "title": "Route Date",
+                "settings": {
+                    "hide_footer": false
+                },
+                "settings_str": "{\"hide_footer\":false}"
+            },
+            {
+                "id": "numbers__1",
+                "type": "numbers",
+                "title": "Passengers",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "long_text__1",
+                "type": "long_text",
+                "title": "Route notes",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "long_text6__1",
+                "type": "long_text",
+                "title": "Route Cargo",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text__1",
+                "type": "text",
+                "title": "Flight Associated with route",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text9__1",
+                "type": "text",
+                "title": "Flight Time @ CLJ",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "label7__1",
+                "type": "status",
+                "title": "Pickup",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 0,
+                            "label": "Show",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#fdab3d"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Programming",
+                            "index": 3,
+                            "is_done": true,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 16,
+                            "label": "Hotel",
+                            "index": 4,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#66ccff"
+                        },
+                        {
+                            "id": 3,
+                            "color": 107,
+                            "label": "Airport",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#225091"
+                        },
+                        {
+                            "id": 4,
+                            "color": 4,
+                            "label": "Publish Routes",
+                            "index": 5,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#9d50dd"
+                        },
+                        {
+                            "id": 6,
+                            "color": 6,
+                            "label": "Soundcheck",
+                            "index": 6,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#037f4c"
+                        },
+                        {
+                            "id": 7,
+                            "color": 7,
+                            "label": "Load out",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#579bfc"
+                        },
+                        {
+                            "id": 8,
+                            "color": 8,
+                            "label": "Main Stage",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#cab641"
+                        },
+                        {
+                            "id": 9,
+                            "color": 9,
+                            "label": "Hangar",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ffcb00"
+                        },
+                        {
+                            "id": 10,
+                            "color": 10,
+                            "label": "festival",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#333333"
+                        },
+                        {
+                            "id": 11,
+                            "color": 11,
+                            "label": "select new route",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#bb3354"
+                        },
+                        {
+                            "id": 12,
+                            "color": 12,
+                            "label": "Artist Village",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ff007f"
+                        },
+                        {
+                            "id": 13,
+                            "color": 13,
+                            "label": "Testing",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ff5ac4"
+                        },
+                        {
+                            "id": 14,
+                            "color": 14,
+                            "label": "Festival",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#784bd1"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":0,\"1\":1,\"2\":16,\"3\":107,\"4\":4,\"6\":6,\"7\":7,\"8\":8,\"9\":9,\"10\":10,\"11\":11,\"12\":12,\"13\":13,\"14\":14,\"16\":2,\"107\":3},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Show\",\"1\":\"Programming\",\"2\":\"Hotel\",\"3\":\"Airport\",\"4\":\"Publish Routes\",\"6\":\"Soundcheck\",\"7\":\"Load out\",\"8\":\"Main Stage\",\"9\":\"Hangar\",\"10\":\"festival\",\"11\":\"select new route\",\"12\":\"Artist Village\",\"13\":\"Testing\",\"14\":\"Festival\"},\"labels_positions_v2\":{\"0\":2,\"1\":3,\"2\":4,\"3\":1,\"4\":5,\"6\":6},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#66ccff\"},\"3\":{\"color\":\"#225091\"},\"4\":{\"color\":\"#9d50dd\"},\"6\":{\"color\":\"#037f4c\"},\"7\":{\"color\":\"#579bfc\"},\"8\":{\"color\":\"#cab641\"},\"9\":{\"color\":\"#ffcb00\"},\"10\":{\"color\":\"#333333\"},\"11\":{\"color\":\"#bb3354\"},\"12\":{\"color\":\"#ff007f\"},\"13\":{\"color\":\"#ff5ac4\"},\"14\":{\"color\":\"#784bd1\"}}}"
+            },
+            {
+                "id": "label70__1",
+                "type": "status",
+                "title": "Dropoff",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 16,
+                            "label": "Hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#66ccff"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Soundcheck",
+                            "is_done": true,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 107,
+                            "label": "Airport",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#225091"
+                        },
+                        {
+                            "id": 3,
+                            "color": 3,
+                            "label": "Show",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#007eb5"
+                        },
+                        {
+                            "id": 4,
+                            "color": 4,
+                            "label": "Programming",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#9d50dd"
+                        },
+                        {
+                            "id": 6,
+                            "color": 6,
+                            "label": "Load in",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#037f4c"
+                        },
+                        {
+                            "id": 7,
+                            "color": 7,
+                            "label": "Hangar",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#579bfc"
+                        },
+                        {
+                            "id": 8,
+                            "color": 8,
+                            "label": "Line check",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#cab641"
+                        },
+                        {
+                            "id": 9,
+                            "color": 9,
+                            "label": "Main Stage",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ffcb00"
+                        },
+                        {
+                            "id": 10,
+                            "color": 10,
+                            "label": "Festival",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#333333"
+                        },
+                        {
+                            "id": 11,
+                            "color": 11,
+                            "label": "hotel",
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#bb3354"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":16,\"1\":1,\"2\":107,\"3\":3,\"4\":4,\"6\":6,\"7\":7,\"8\":8,\"9\":9,\"10\":10,\"11\":11,\"16\":0,\"107\":2},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Hotel\",\"1\":\"Soundcheck\",\"2\":\"Airport\",\"3\":\"Show\",\"4\":\"Programming\",\"6\":\"Load in\",\"7\":\"Hangar\",\"8\":\"Line check\",\"9\":\"Main Stage\",\"10\":\"Festival\",\"11\":\"hotel\"},\"labels_positions_v2\":{},\"labels_colors\":{\"0\":{\"color\":\"#66ccff\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#225091\"},\"3\":{\"color\":\"#007eb5\"},\"4\":{\"color\":\"#9d50dd\"},\"6\":{\"color\":\"#037f4c\"},\"7\":{\"color\":\"#579bfc\"},\"8\":{\"color\":\"#cab641\"},\"9\":{\"color\":\"#ffcb00\"},\"10\":{\"color\":\"#333333\"},\"11\":{\"color\":\"#bb3354\"}}}"
+            },
+            {
+                "id": "mirror7__1",
+                "type": "mirror",
+                "title": "Festival Gate",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "mirror2__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"mirror2__1\"]}}"
+            },
+            {
+                "id": "mirror29__1",
+                "type": "mirror",
+                "title": "Signage",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "long_text66__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"long_text66__1\"]}}"
+            },
+            {
+                "id": "mirror12__1",
+                "type": "mirror",
+                "title": "Angel",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "connect_boards7__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"connect_boards7__1\"]}}"
+            },
+            {
+                "id": "mirror97__1",
+                "type": "mirror",
+                "title": "Angel Phone",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "mirror1__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"mirror1__1\"]}}"
+            },
+            {
+                "id": "mirror__1",
+                "type": "mirror",
+                "title": "Cargo",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "long_text49__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"long_text49__1\"]}}"
+            },
+            {
+                "id": "mirror2__1",
+                "type": "mirror",
+                "title": "Arrival Flight Date",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "mirror00__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"mirror00__1\"]}}"
+            },
+            {
+                "id": "mirror5__1",
+                "type": "mirror",
+                "title": "Arrival Flight No",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "connect_boards3__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"connect_boards3__1\"]}}"
+            },
+            {
+                "id": "mirror1__1",
+                "type": "mirror",
+                "title": "Departure Flight Date",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "mirror5__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"mirror5__1\"]}}"
+            },
+            {
+                "id": "mirror91__1",
+                "type": "mirror",
+                "title": "Departure Flight No",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "connect_boards23__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"connect_boards23__1\"]}}"
+            },
+            {
+                "id": "mirror9__1",
+                "type": "mirror",
+                "title": "Vehicle Preference",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "long_text8__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"long_text8__1\"]}}"
+            },
+            {
+                "id": "mirror0__1",
+                "type": "mirror",
+                "title": "Transfers Requested",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "long_text1__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"long_text1__1\"]}}"
+            },
+            {
+                "id": "mirror4__1",
+                "type": "mirror",
+                "title": "Hotel",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "board_relation7"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"board_relation7\"]}}"
+            },
+            {
+                "id": "people__1",
+                "type": "people",
+                "title": "Route Requested by",
+                "settings": {
+                    "hide_footer": false
+                },
+                "settings_str": "{\"hide_footer\":false}"
+            },
+            {
+                "id": "item_id__1",
+                "type": "item_id",
+                "title": "Item ID",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "long_text2__1",
+                "type": "long_text",
+                "title": "Google Sheets row UUID",
+                "settings": {},
+                "settings_str": "{}"
+            }
+        ],
+        "tags": [],
+        "views": [
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror97__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror12__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror4__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror5__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror91__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror9__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror0__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label70__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "people__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror29__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text2__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "column_order": [
+                            "name",
+                            "board_relation__1",
+                            "label__1",
+                            "numbers__1",
+                            "long_text6__1",
+                            "long_text__1",
+                            "text__1",
+                            "mirror97__1",
+                            "mirror12__1",
+                            "mirror4__1",
+                            "mirror5__1",
+                            "mirror2__1",
+                            "mirror91__1",
+                            "mirror3__1",
+                            "mirror1__1",
+                            "mirror7__1",
+                            "mirror9__1",
+                            "mirror0__1",
+                            "mirror__1",
+                            "label7__1",
+                            "label70__1",
+                            "people__1",
+                            "mirror29__1",
+                            "item_id__1"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Double check dates",
+                "id": "256680617"
+            }
+        ],
+        "communication": null,
+        "item_terminology": "Transfer",
+        "owner": "37877989",
+        "mappable_column_settings": {
+            "name": {},
+            "status__1": {
+                "done_colors": [
+                    1
+                ],
+                "color_mapping": {
+                    "0": 10,
+                    "1": 1,
+                    "2": 2,
+                    "3": 8,
+                    "4": 160,
+                    "5": 5,
+                    "6": 107,
+                    "7": 154,
+                    "8": 3,
+                    "10": 0,
+                    "107": 6,
+                    "154": 7,
+                    "160": 4
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Route notes added",
+                    "1": "Complete",
+                    "2": "Must check",
+                    "3": "Placeholder",
+                    "4": "Has Passengers",
+                    "5": "Auto-created",
+                    "6": "Has Date",
+                    "7": "Published"
+                },
+                "labels_positions_v2": {
+                    "0": 3,
+                    "1": 4,
+                    "2": 5,
+                    "3": 6,
+                    "4": 2,
+                    "5": 0,
+                    "6": 1,
+                    "7": 7
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#333333"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#df2f4a"
+                    },
+                    "3": {
+                        "color": "#cab641"
+                    },
+                    "4": {
+                        "color": "#175a63"
+                    },
+                    "5": {
+                        "color": "#c4c4c4"
+                    },
+                    "6": {
+                        "color": "#225091"
+                    },
+                    "7": {
+                        "color": "#a9bee8"
+                    }
+                }
+            },
+            "board_relation__1": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445614
+                ],
+                "boardId": null
+            },
+            "mirror120__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "dropdown1__1"
+                    ]
+                }
+            },
+            "mirror3__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "board_relation3"
+                    ]
+                }
+            },
+            "label__1": {
+                "done_colors": [],
+                "color_mapping": {
+                    "0": 158,
+                    "1": 1,
+                    "2": 2,
+                    "3": 106,
+                    "4": 4,
+                    "5": 5,
+                    "6": 6,
+                    "7": 7,
+                    "8": 12,
+                    "9": 9,
+                    "10": 10,
+                    "11": 11,
+                    "12": 8,
+                    "13": 13,
+                    "14": 14,
+                    "15": 15,
+                    "16": 16,
+                    "17": 17,
+                    "18": 18,
+                    "19": 19,
+                    "101": 108,
+                    "102": 102,
+                    "103": 103,
+                    "104": 104,
+                    "105": 105,
+                    "106": 3,
+                    "107": 107,
+                    "108": 101,
+                    "109": 109,
+                    "110": 110,
+                    "154": 101,
+                    "158": 0
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Airport - Hotel",
+                    "1": "Airport - Soundcheck",
+                    "2": "Airport - Show",
+                    "3": "Airport - City",
+                    "4": "Hotel - Show",
+                    "5": "Not specified",
+                    "6": "Hotel - Airport",
+                    "7": "Hotel - Soundcheck",
+                    "8": "Show - Hotel",
+                    "9": "Show - Airport",
+                    "10": "Soundcheck - Hotel",
+                    "11": "Hotel - Programming",
+                    "12": "Programming - Hotel",
+                    "13": "Publish Routes",
+                    "14": "select new route",
+                    "15": "Airport - Programming",
+                    "16": "Hotel - Load in",
+                    "17": "Load out - Hotel",
+                    "18": "Main Stage - Hangar",
+                    "19": "Hotel - Line check",
+                    "101": "Hangar - Main Stage",
+                    "102": "Hotel-Festival",
+                    "103": "festival-hotel",
+                    "104": "Hotel - Festival",
+                    "105": "festival - hotel",
+                    "106": "Apply Templates",
+                    "107": "RO",
+                    "108": "Artist Village - Main Stage",
+                    "109": "Testing",
+                    "110": "Festival - Hotel"
+                },
+                "labels_positions_v2": {
+                    "0": 1,
+                    "1": 2,
+                    "2": 3,
+                    "3": 4,
+                    "4": 5,
+                    "5": 0,
+                    "6": 6,
+                    "7": 7,
+                    "8": 8,
+                    "9": 9,
+                    "10": 10,
+                    "101": 11
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#a1e3f6"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#df2f4a"
+                    },
+                    "3": {
+                        "color": "#74afcc"
+                    },
+                    "4": {
+                        "color": "#9d50dd"
+                    },
+                    "5": {
+                        "color": "#c4c4c4"
+                    },
+                    "6": {
+                        "color": "#037f4c"
+                    },
+                    "7": {
+                        "color": "#579bfc"
+                    },
+                    "8": {
+                        "color": "#ff007f"
+                    },
+                    "9": {
+                        "color": "#ffcb00"
+                    },
+                    "10": {
+                        "color": "#333333"
+                    },
+                    "11": {
+                        "color": "#bb3354"
+                    },
+                    "12": {
+                        "color": "#cab641"
+                    },
+                    "13": {
+                        "color": "#ff5ac4"
+                    },
+                    "14": {
+                        "color": "#784bd1"
+                    },
+                    "15": {
+                        "color": "#9cd326"
+                    },
+                    "16": {
+                        "color": "#66ccff"
+                    },
+                    "17": {
+                        "color": "#757575"
+                    },
+                    "18": {
+                        "color": "#7f5347"
+                    },
+                    "19": {
+                        "color": "#ff6d3b"
+                    },
+                    "101": {
+                        "color": "#a9bee8"
+                    },
+                    "102": {
+                        "color": "#faa1f1"
+                    },
+                    "103": {
+                        "color": "#ffadad"
+                    },
+                    "104": {
+                        "color": "#7e3b8a"
+                    },
+                    "105": {
+                        "color": "#9aadbd"
+                    },
+                    "106": {
+                        "color": "#007eb5"
+                    },
+                    "107": {
+                        "color": "#225091"
+                    },
+                    "108": {
+                        "color": "#ff7575"
+                    },
+                    "109": {
+                        "color": "#5559df"
+                    },
+                    "110": {
+                        "color": "#401694"
+                    }
+                }
+            },
+            "date__1": {
+                "hide_footer": false
+            },
+            "numbers__1": {},
+            "long_text__1": {},
+            "long_text6__1": {},
+            "text__1": {},
+            "text9__1": {},
+            "label7__1": {
+                "done_colors": [
+                    1
+                ],
+                "color_mapping": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 16,
+                    "3": 107,
+                    "4": 4,
+                    "6": 6,
+                    "7": 7,
+                    "8": 8,
+                    "9": 9,
+                    "10": 10,
+                    "11": 11,
+                    "12": 12,
+                    "13": 13,
+                    "14": 14,
+                    "16": 2,
+                    "107": 3
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Show",
+                    "1": "Programming",
+                    "2": "Hotel",
+                    "3": "Airport",
+                    "4": "Publish Routes",
+                    "6": "Soundcheck",
+                    "7": "Load out",
+                    "8": "Main Stage",
+                    "9": "Hangar",
+                    "10": "festival",
+                    "11": "select new route",
+                    "12": "Artist Village",
+                    "13": "Testing",
+                    "14": "Festival"
+                },
+                "labels_positions_v2": {
+                    "0": 2,
+                    "1": 3,
+                    "2": 4,
+                    "3": 1,
+                    "4": 5,
+                    "6": 6
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#fdab3d"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#66ccff"
+                    },
+                    "3": {
+                        "color": "#225091"
+                    },
+                    "4": {
+                        "color": "#9d50dd"
+                    },
+                    "6": {
+                        "color": "#037f4c"
+                    },
+                    "7": {
+                        "color": "#579bfc"
+                    },
+                    "8": {
+                        "color": "#cab641"
+                    },
+                    "9": {
+                        "color": "#ffcb00"
+                    },
+                    "10": {
+                        "color": "#333333"
+                    },
+                    "11": {
+                        "color": "#bb3354"
+                    },
+                    "12": {
+                        "color": "#ff007f"
+                    },
+                    "13": {
+                        "color": "#ff5ac4"
+                    },
+                    "14": {
+                        "color": "#784bd1"
+                    }
+                }
+            },
+            "label70__1": {
+                "done_colors": [
+                    1
+                ],
+                "color_mapping": {
+                    "0": 16,
+                    "1": 1,
+                    "2": 107,
+                    "3": 3,
+                    "4": 4,
+                    "6": 6,
+                    "7": 7,
+                    "8": 8,
+                    "9": 9,
+                    "10": 10,
+                    "11": 11,
+                    "16": 0,
+                    "107": 2
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Hotel",
+                    "1": "Soundcheck",
+                    "2": "Airport",
+                    "3": "Show",
+                    "4": "Programming",
+                    "6": "Load in",
+                    "7": "Hangar",
+                    "8": "Line check",
+                    "9": "Main Stage",
+                    "10": "Festival",
+                    "11": "hotel"
+                },
+                "labels_positions_v2": {},
+                "labels_colors": {
+                    "0": {
+                        "color": "#66ccff"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#225091"
+                    },
+                    "3": {
+                        "color": "#007eb5"
+                    },
+                    "4": {
+                        "color": "#9d50dd"
+                    },
+                    "6": {
+                        "color": "#037f4c"
+                    },
+                    "7": {
+                        "color": "#579bfc"
+                    },
+                    "8": {
+                        "color": "#cab641"
+                    },
+                    "9": {
+                        "color": "#ffcb00"
+                    },
+                    "10": {
+                        "color": "#333333"
+                    },
+                    "11": {
+                        "color": "#bb3354"
+                    }
+                }
+            },
+            "mirror7__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "mirror2__1"
+                    ]
+                }
+            },
+            "mirror29__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "long_text66__1"
+                    ]
+                }
+            },
+            "mirror12__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "connect_boards7__1"
+                    ]
+                }
+            },
+            "mirror97__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "mirror1__1"
+                    ]
+                }
+            },
+            "mirror__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "long_text49__1"
+                    ]
+                }
+            },
+            "mirror2__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "mirror00__1"
+                    ]
+                }
+            },
+            "mirror5__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "connect_boards3__1"
+                    ]
+                }
+            },
+            "mirror1__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "mirror5__1"
+                    ]
+                }
+            },
+            "mirror91__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "connect_boards23__1"
+                    ]
+                }
+            },
+            "mirror9__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "long_text8__1"
+                    ]
+                }
+            },
+            "mirror0__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "long_text1__1"
+                    ]
+                }
+            },
+            "mirror4__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "board_relation7"
+                    ]
+                }
+            },
+            "people__1": {
+                "hide_footer": false
+            },
+            "item_id__1": {},
+            "long_text2__1": {}
+        }
+    }
+]

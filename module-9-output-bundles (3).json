@@ -1,0 +1,257 @@
+[
+    {
+        "id": "18412445612",
+        "name": "EC12** - Artist Vehicles new",
+        "type": "board",
+        "description": null,
+        "state": "active",
+        "board_folder_id": "20390454",
+        "board_kind": "public",
+        "columns": [
+            {
+                "id": "name",
+                "type": "name",
+                "title": "Name",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "person",
+                "type": "people",
+                "title": "Person",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "status",
+                "type": "status",
+                "title": "Status",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 0,
+                            "label": "Working on it",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#fdab3d"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Done",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 2,
+                            "label": "Stuck",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#df2f4a"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":0,\"1\":1,\"2\":2},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":0,\"1\":2,\"2\":1},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#df2f4a\"}}}"
+            },
+            {
+                "id": "date4",
+                "type": "date",
+                "title": "Date",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "timerange_mm14jgq4",
+                "type": "timeline",
+                "title": "Vehicle in Cluj",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "timerange_mm14pjqm",
+                "type": "timeline",
+                "title": "Vehicle on site",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "board_relation_mm14a1th",
+                "type": "board_relation",
+                "title": "Artist's Vehicle",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445614
+                    ],
+                    "boardId": null
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445614],\"boardId\":null}"
+            },
+            {
+                "id": "color_mm145nvg",
+                "type": "status",
+                "title": "Vehicle Type",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 0,
+                            "label": "Van",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#fdab3d"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Truck",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":0,\"1\":1},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Van\",\"1\":\"Truck\"},\"labels_positions_v2\":{\"0\":0,\"1\":2},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\"},\"1\":{\"color\":\"#00c875\"}}}"
+            },
+            {
+                "id": "board_relation_mm14fz4v",
+                "type": "board_relation",
+                "title": "Vehicle parked at",
+                "settings": {
+                    "boardIds": [
+                        18412445605,
+                        18412445613
+                    ],
+                    "boardId": 18412445605
+                },
+                "settings_str": "{\"boardIds\":[18412445605,18412445613],\"boardId\":18412445605}"
+            },
+            {
+                "id": "lookup_mm145k0g",
+                "type": "mirror",
+                "title": "Car park notes",
+                "settings": {
+                    "relation_column": {
+                        "board_relation_mm14fz4v": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445605",
+                            "column_ids": [
+                                "long_text_mkswytb5"
+                            ]
+                        },
+                        {
+                            "board_id": "18412445613",
+                            "column_ids": []
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation_mm14fz4v\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445605\":[\"long_text_mkswytb5\"],\"18412445613\":[]}}"
+            }
+        ],
+        "tags": [],
+        "views": [],
+        "communication": null,
+        "item_terminology": "Vehicle",
+        "owner": "37877989",
+        "mappable_column_settings": {
+            "name": {},
+            "person": {},
+            "status": {
+                "done_colors": [],
+                "color_mapping": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Working on it",
+                    "1": "Done",
+                    "2": "Stuck"
+                },
+                "labels_positions_v2": {
+                    "0": 0,
+                    "1": 2,
+                    "2": 1
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#fdab3d"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#df2f4a"
+                    }
+                }
+            },
+            "date4": {},
+            "timerange_mm14jgq4": {},
+            "timerange_mm14pjqm": {},
+            "board_relation_mm14a1th": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445614
+                ],
+                "boardId": null
+            },
+            "color_mm145nvg": {
+                "done_colors": [],
+                "color_mapping": {
+                    "0": 0,
+                    "1": 1
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Van",
+                    "1": "Truck"
+                },
+                "labels_positions_v2": {
+                    "0": 0,
+                    "1": 2
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#fdab3d"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    }
+                }
+            },
+            "board_relation_mm14fz4v": {
+                "boardIds": [
+                    18412445605,
+                    18412445613
+                ],
+                "boardId": 18412445605
+            },
+            "lookup_mm145k0g": {
+                "relation_column": {
+                    "board_relation_mm14fz4v": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445605": [
+                        "long_text_mkswytb5"
+                    ],
+                    "18412445613": []
+                }
+            }
+        }
+    }
+]

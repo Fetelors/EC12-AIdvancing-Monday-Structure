@@ -1,0 +1,1322 @@
+[
+    {
+        "id": "18412445613",
+        "name": "EC12** - Stages",
+        "type": "board",
+        "description": null,
+        "state": "active",
+        "board_folder_id": "20390454",
+        "board_kind": "public",
+        "columns": [
+            {
+                "id": "name",
+                "type": "name",
+                "title": "Name",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "board_relation_mm14903",
+                "type": "board_relation",
+                "title": "Artist (EC12)",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445614
+                    ],
+                    "boardId": null
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445614],\"boardId\":null}"
+            },
+            {
+                "id": "text",
+                "type": "text",
+                "title": "Stage Sponsored by",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "numbers",
+                "type": "numbers",
+                "title": "Capacity",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "a_la_carte_menu",
+                "type": "dropdown",
+                "title": "H: A la carte menu",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 4,
+                            "label": "Order for takeaway",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 106,
+                            "label": "Served to table",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 157,
+                            "label": "Buffet Style",
+                            "is_deactivated": false
+                        }
+                    ]
+                },
+                "settings_str": "{\"labels\":[{\"id\":4,\"name\":\"Order for takeaway\"},{\"id\":106,\"name\":\"Served to table\"},{\"id\":157,\"name\":\"Buffet Style\"}],\"deactivated_labels\":[]}"
+            },
+            {
+                "id": "dropdown74",
+                "type": "dropdown",
+                "title": "H: Platter",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 1,
+                            "label": "Made to order",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 2,
+                            "label": "Daily order",
+                            "is_deactivated": false
+                        }
+                    ]
+                },
+                "settings_str": "{\"labels\":[{\"id\":1,\"name\":\"Made to order\"},{\"id\":2,\"name\":\"Daily order\"}],\"deactivated_labels\":[]}"
+            },
+            {
+                "id": "dropdown3",
+                "type": "dropdown",
+                "title": "H: Overnight Food",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 1,
+                            "label": "Food Court",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 2,
+                            "label": "Pizza until 03:00",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 4,
+                            "label": "Platters",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 5,
+                            "label": "Overnight Menu",
+                            "is_deactivated": false
+                        }
+                    ]
+                },
+                "settings_str": "{\"labels\":[{\"id\":1,\"name\":\"Food Court\"},{\"id\":2,\"name\":\"Pizza until 03:00\"},{\"id\":4,\"name\":\"Platters\"},{\"id\":5,\"name\":\"Overnight Menu\"}],\"deactivated_labels\":[]}"
+            },
+            {
+                "id": "dropdown8",
+                "type": "dropdown",
+                "title": "H: Lounge",
+                "settings": {
+                    "labels": []
+                },
+                "settings_str": "{\"labels\":[],\"deactivated_labels\":[]}"
+            },
+            {
+                "id": "dropdown9",
+                "type": "dropdown",
+                "title": "H: Fridge",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 1,
+                            "label": "DR",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 2,
+                            "label": "Bar",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 3,
+                            "label": "Storage",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 4,
+                            "label": "Team",
+                            "is_deactivated": false
+                        }
+                    ]
+                },
+                "settings_str": "{\"labels\":[{\"id\":1,\"name\":\"DR\"},{\"id\":2,\"name\":\"Bar\"},{\"id\":3,\"name\":\"Storage\"},{\"id\":4,\"name\":\"Team\"}],\"deactivated_labels\":[]}"
+            },
+            {
+                "id": "dropdown89",
+                "type": "dropdown",
+                "title": "H: Drinks",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 1,
+                            "label": "Staffed Bar",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 2,
+                            "label": "Stage Fridge",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 3,
+                            "label": "Wristband",
+                            "is_deactivated": false
+                        },
+                        {
+                            "id": 4,
+                            "label": "Rider only",
+                            "is_deactivated": false
+                        }
+                    ]
+                },
+                "settings_str": "{\"labels\":[{\"id\":1,\"name\":\"Staffed Bar\"},{\"id\":2,\"name\":\"Stage Fridge\"},{\"id\":3,\"name\":\"Wristband\"},{\"id\":4,\"name\":\"Rider only\"}],\"deactivated_labels\":[]}"
+            },
+            {
+                "id": "numbers__1",
+                "type": "numbers",
+                "title": "Stage Index",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "item_id__1",
+                "type": "item_id",
+                "title": "Item ID",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text__1",
+                "type": "text",
+                "title": "Link to Standard Drive Pack",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text4__1",
+                "type": "text",
+                "title": "Festival Gate",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "connect_boards2__1",
+                "type": "board_relation",
+                "title": "Team members @ Stage",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445606
+                    ],
+                    "boardId": 18412445606
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445606],\"boardId\":18412445606}"
+            },
+            {
+                "id": "color_mkpgw72a",
+                "type": "status",
+                "title": "Stage Info Status",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 0,
+                            "label": "Confirm Details",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#fdab3d"
+                        },
+                        {
+                            "id": 1,
+                            "color": 1,
+                            "label": "Confirmed",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#00c875"
+                        },
+                        {
+                            "id": 2,
+                            "color": 2,
+                            "label": "Stuck",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#df2f4a"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[],\"color_mapping\":{\"0\":0,\"1\":1,\"2\":2},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Confirm Details\",\"1\":\"Confirmed\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":0,\"1\":1,\"2\":2},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\"},\"1\":{\"color\":\"#00c875\"},\"2\":{\"color\":\"#df2f4a\"}}}"
+            }
+        ],
+        "tags": [],
+        "views": [
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "label5",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label56",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "checkbox",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label31",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown74",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown9",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown89",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards5__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ],
+                        "column_order": [
+                            "name",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "numbers",
+                            "dropdown",
+                            "dropdown79"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Booking",
+                "id": "256680579"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "text",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown79",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label5",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label56",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "checkbox",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label31",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown74",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown9",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown89",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "fru_fru",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "a_la_carte_menu",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards5__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "column_order": [
+                            "name",
+                            "numbers",
+                            "connect_boards3__1",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "dropdown",
+                            "dropdown79",
+                            "a_la_carte_menu",
+                            "fru_fru",
+                            "checkbox",
+                            "dropdown74",
+                            "dropdown3",
+                            "dropdown8",
+                            "dropdown9",
+                            "dropdown89",
+                            "connect_boards__1",
+                            "connect_boards5__1",
+                            "connect_boards7__1"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Stage Managers",
+                "id": "256680584"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "text",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown79",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown9",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown89",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards5__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "floating_columns_count": 4,
+                        "column_order": [
+                            "name",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "numbers",
+                            "dropdown",
+                            "dropdown79",
+                            "label5",
+                            "checkbox",
+                            "a_la_carte_menu",
+                            "label56",
+                            "fru_fru"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Catering 1",
+                "id": "256680590"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "text",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown79",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "checkbox",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "a_la_carte_menu",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "fru_fru",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown74",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards5__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "floating_columns_count": 4,
+                        "column_order": [
+                            "name",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "numbers",
+                            "dropdown",
+                            "dropdown79",
+                            "label5",
+                            "checkbox",
+                            "a_la_carte_menu",
+                            "label56",
+                            "fru_fru"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Amenities",
+                "id": "256680594"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "text",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown79",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "checkbox",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "a_la_carte_menu",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "fru_fru",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown74",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown89",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown9",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "floating_columns_count": 2,
+                        "column_order": [
+                            "name",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "numbers",
+                            "dropdown",
+                            "dropdown79",
+                            "label5",
+                            "checkbox",
+                            "a_la_carte_menu",
+                            "label56",
+                            "fru_fru",
+                            "dropdown74",
+                            "dropdown3",
+                            "dropdown8",
+                            "dropdown9",
+                            "dropdown89",
+                            "connect_boards__1",
+                            "mirror8__1",
+                            "mirror__1",
+                            "connect_boards5__1",
+                            "connect_boards7__1",
+                            "mirror5__1",
+                            "connect_boards3__1",
+                            "connect_boards75__1",
+                            "connect_boards31__1",
+                            "mirror6__1",
+                            "mirror02__1",
+                            "connect_boards6__1",
+                            "connect_boards754__1",
+                            "numbers__1",
+                            "item_id__1",
+                            "text__1",
+                            "text4__1",
+                            "connect_boards2__1",
+                            "mirror0__1"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Hospitality Team",
+                "id": "256680599"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "connect_boards7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Monday database",
+                "id": "256680603"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "label5",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label56",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "checkbox",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "label31",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown74",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown9",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown89",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "a_la_carte_menu",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "fru_fru",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "text4__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "column_order": [
+                            "name",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "numbers",
+                            "dropdown",
+                            "connect_boards75__1",
+                            "dropdown79",
+                            "a_la_carte_menu",
+                            "fru_fru",
+                            "checkbox",
+                            "dropdown74",
+                            "dropdown3",
+                            "dropdown8",
+                            "dropdown9",
+                            "dropdown89",
+                            "connect_boards31__1",
+                            "connect_boards__1",
+                            "connect_boards5__1",
+                            "connect_boards7__1",
+                            "connect_boards3__1",
+                            "mirror4__1"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Team",
+                "id": "256680607"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "text",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown79",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown9",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown89",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards5__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards7__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards75__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards31__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards6__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards754__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "numbers__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "a_la_carte_menu",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "fru_fru",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown74",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "dropdown3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "floating_columns_count": 4,
+                        "column_order": [
+                            "name",
+                            "connect_boards",
+                            "mirror",
+                            "text",
+                            "numbers",
+                            "dropdown",
+                            "dropdown79",
+                            "label5",
+                            "checkbox",
+                            "a_la_carte_menu",
+                            "label56",
+                            "fru_fru"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Artist Standard Packs",
+                "id": "256680612"
+            }
+        ],
+        "communication": null,
+        "item_terminology": "Stage",
+        "owner": "37877989",
+        "mappable_column_settings": {
+            "name": {},
+            "board_relation_mm14903": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445614
+                ],
+                "boardId": null
+            },
+            "text": {},
+            "numbers": {},
+            "a_la_carte_menu": {
+                "labels": [
+                    {
+                        "id": 4,
+                        "name": "Order for takeaway"
+                    },
+                    {
+                        "id": 106,
+                        "name": "Served to table"
+                    },
+                    {
+                        "id": 157,
+                        "name": "Buffet Style"
+                    }
+                ],
+                "deactivated_labels": []
+            },
+            "dropdown74": {
+                "labels": [
+                    {
+                        "id": 1,
+                        "name": "Made to order"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Daily order"
+                    }
+                ],
+                "deactivated_labels": []
+            },
+            "dropdown3": {
+                "labels": [
+                    {
+                        "id": 1,
+                        "name": "Food Court"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Pizza until 03:00"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Platters"
+                    },
+                    {
+                        "id": 5,
+                        "name": "Overnight Menu"
+                    }
+                ],
+                "deactivated_labels": []
+            },
+            "dropdown8": {
+                "labels": [],
+                "deactivated_labels": []
+            },
+            "dropdown9": {
+                "labels": [
+                    {
+                        "id": 1,
+                        "name": "DR"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Bar"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Storage"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Team"
+                    }
+                ],
+                "deactivated_labels": []
+            },
+            "dropdown89": {
+                "labels": [
+                    {
+                        "id": 1,
+                        "name": "Staffed Bar"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Stage Fridge"
+                    },
+                    {
+                        "id": 3,
+                        "name": "Wristband"
+                    },
+                    {
+                        "id": 4,
+                        "name": "Rider only"
+                    }
+                ],
+                "deactivated_labels": []
+            },
+            "numbers__1": {},
+            "item_id__1": {},
+            "text__1": {},
+            "text4__1": {},
+            "connect_boards2__1": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445606
+                ],
+                "boardId": 18412445606
+            },
+            "color_mkpgw72a": {
+                "done_colors": [],
+                "color_mapping": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Confirm Details",
+                    "1": "Confirmed",
+                    "2": "Stuck"
+                },
+                "labels_positions_v2": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 2
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#fdab3d"
+                    },
+                    "1": {
+                        "color": "#00c875"
+                    },
+                    "2": {
+                        "color": "#df2f4a"
+                    }
+                }
+            }
+        }
+    }
+]

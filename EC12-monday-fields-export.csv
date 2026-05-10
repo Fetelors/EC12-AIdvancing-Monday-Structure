@@ -1,0 +1,177 @@
+Board Name,Board ID,Field Name,Field ID,Field Type,Purpose,Connections,Input Method
+EC12** - Accommodation,18412445605,Name,name,Key,Hotel name identifier,,Text
+EC12** - Accommodation,18412445605,Subitems,subitems,Connection,Links to Hotel Rooms board,Hotel Rooms (18412445627),Board Relation
+EC12** - Accommodation,18412445605,Hotel Type,label__1,Input,Categories: Camping Access/Camping/3-5 Star,Status selector,Status
+EC12** - Accommodation,18412445605,Hotel Address,long_text__1,Input,Full street address,,Long Text
+EC12** - Accommodation,18412445605,Google Maps Pin,text__1,Input,Location link for mapping,,Text
+EC12** - Accommodation,18412445605,Front Desk Phone Number,text5__1,Input,Primary contact number,,Text
+EC12** - Accommodation,18412445605,Front Desk Email,text7__1,Input,Email contact,,Text
+EC12** - Accommodation,18412445605,Standard Check-in Time,text8__1,Input,Check-in policy (e.g. 3 PM),,Text
+EC12** - Accommodation,18412445605,Standard Check-out Time,text2__1,Input,Check-out policy (e.g. 11 AM),,Text
+EC12** - Accommodation,18412445605,Breakfast Available,text3__1,Input,Breakfast details & timing,,Text
+EC12** - Accommodation,18412445605,Restaurant Opening Times,text0__1,Input,Restaurant schedule,,Text
+EC12** - Accommodation,18412445605,Room Service Availability,text4__1,Input,Room service hours,,Text
+EC12** - Accommodation,18412445605,Wellness,text9__1,Input,Spa/wellness facilities,,Text
+EC12** - Accommodation,18412445605,Item ID,item_id__1,Key,System identifier,,Auto-generated
+EC12** - Accommodation,18412445605,Laundry,text71__1,Input,Laundry service details,,Text
+EC12** - Accommodation,18412445605,Hotel Website,link__1,Input,Web link,,Link
+EC12** - Accommodation,18412445605,Breakfast Timings,long_text_mkswx8cv,Input,Detailed breakfast schedule,,Long Text
+EC12** - Accommodation,18412445605,Hotel Car Park,long_text_mkswytb5,Input,Car park info & locations,Mirrored to Artist Vehicles,Long Text
+EC12** - Accommodation,18412445605,Artists - Artist Tracker @ Hotel,connect_boards54,Connection,Links to Artist Advancing Tracker,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Accommodation,18412445605,Total Artist Party per Hotel,mirror5,Connection,Mirrors formula from Artist Tracker,Artist Advancing Tracker,Mirror
+EC12** - Accommodation,18412445605,Hotel Dates,mirror8,Connection,Mirrors Hotel Timeline from Artist Tracker,Artist Advancing Tracker,Mirror
+EC12** - Accommodation,18412445605,Hotel Rooms,board_relation_mkxdj428,Connection,Links to room inventory,Hotel Rooms (18412445608),Board Relation
+EC12** - Team Members,18412445606,Name,name,Key,Staff member name,,Text
+EC12** - Team Members,18412445606,Team,label,Input,12 departments assigned,Status selector with 12 options,Status
+EC12** - Team Members,18412445606,Mobile No,text7__1,Input,Contact number,,Text
+EC12** - Team Members,18412445606,Email,email2__1,Input,Email address,,Email
+EC12** - Team Members,18412445606,Role,text1__1,Input,Job title/position,,Text
+EC12** - Team Members,18412445606,Nickname,text__1,Input,Informal name for quick reference,,Text
+EC12** - Team Members,18412445606,Item ID,item_id__1,Key,System identifier,,Auto-generated
+EC12** - Team Members,18412445606,EC Team @ Stage,link_to_ec10___stages21__1,Connection,Links staff to stage assignments,Stages (18412445613),Board Relation
+EC12** - Team Members,18412445606,Artist @ Tracker,board_relation_mm36e1fc,Connection,Links staff to artists they manage,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Flights,18412445607,Name,name,Key,Flight identifier,,Text
+EC12** - Flights,18412445607,Subitems,subtasks_mksd4tdv,Connection,Links to Flight Segments board,Flight Segments (18412445628),Board Relation
+EC12** - Flights,18412445607,Status,status,Input,Working on it / Done / Stuck / NEW / Manual,Status selector,Status
+EC12** - Flights,18412445607,Flight Date,date__1,Input,Departure/arrival date,,Date
+EC12** - Flights,18412445607,Departure Time,hour5__1,Input,Scheduled departure time,,Hour
+EC12** - Flights,18412445607,Arrival Time,hour52__1,Input,Scheduled arrival time,,Hour
+EC12** - Flights,18412445607,Time @ CLJ,hour__1,Input,Time at Cluj airport,,Hour
+EC12** - Flights,18412445607,Arrival Method,label__1,Input,30+ airlines (Wizz Air/Ryanair/Turkish/Private/Vehicle),Status with 30+ options,Status
+EC12** - Flights,18412445607,To/From,text__1,Input,Route origin/destination,,Text
+EC12** - Flights,18412445607,Route Type,label8__1,Input,Departure / Arrival / Private,Status selector,Status
+EC12** - Flights,18412445607,Artist Arrival Flight,board_relation__1,Connection,Links arrival flights to artists,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Flights,18412445607,Artist Departure Flight,board_relation1__1,Connection,Links departure flights to artists,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Flights,18412445607,Last Updated,last_updated__1,Key,Auto-timestamp for changes,,Auto-generated
+EC12** - Flights,18412445607,Flight Notes,long_text__1,Input,Special requirements/amendments,,Long Text
+EC12** - Flights,18412445607,Revised Arrival Time,hour_mkrynmed,Input,Updated arrival if changed,,Hour
+EC12** - Flights,18412445607,Revised Departure Time,hour_mkrydyfc,Input,Updated departure if changed,,Hour
+EC12** - Flights,18412445607,Person Arrival Flight,board_relation_mm2b2pvp,Connection,Links individuals to flights,Artist Party (18412445609),Board Relation
+EC12** - Hotel Rooms,18412445608,Name,name,Key,Room identifier (e.g. A101),,Text
+EC12** - Hotel Rooms,18412445608,Person,person,Input,Assigned guest,,People
+EC12** - Hotel Rooms,18412445608,Status,status,Input,Working on it / Done / Stuck,Status selector,Status
+EC12** - Hotel Rooms,18412445608,Hotel Door Number,text_mm366mby,Input,Room number for identification,,Text
+EC12** - Hotel Rooms,18412445608,Hotel Room Floor,text_mm36nvxr,Input,Floor location for wayfinding,,Text
+EC12** - Hotel Rooms,18412445608,File,file_mkxd25zw,Input,Room photos/documentation,,File
+EC12** - Hotel Rooms,18412445608,Bathtub,boolean_mkxd9kmj,Input,Room amenity indicator,,Checkbox
+EC12** - Hotel Rooms,18412445608,Balcony,boolean_mkxd4rbg,Input,Room amenity indicator,,Checkbox
+EC12** - Hotel Rooms,18412445608,Hotel,board_relation_mkxdn254,Connection,Links room to hotel,Accommodation (18412445605),Board Relation
+EC12** - Hotel Rooms,18412445608,Person in Room,board_relation_mm2byzk4,Connection,Links assigned person,Artist Party (18412445609),Board Relation
+EC12** - Hotel Rooms,18412445608,Artist in Room,lookup_mm2bnj1g,Connection,Mirrors linked artist from party,Artist Party,Mirror
+EC12** - Hotel Rooms,18412445608,People Timeline,lookup_mm2bmrk6,Connection,Mirrors guest duration,Artist Party,Mirror
+EC12** - Artist Party,18412445609,Name,name,Key,Party member name,,Text
+EC12** - Artist Party,18412445609,Artist Travel Party Member Role,person_role,Input,27 roles (Artist/PM/TM/Photographer/Manager/Driver/Crew/Stylist),Dropdown with 27 options,Dropdown
+EC12** - Artist Party,18412445609,Artist Travel Party Member Email,text__1,Input,Contact email for party member,,Text
+EC12** - Artist Party,18412445609,Artist Travel Party Member Phone,phone_number__1,Input,Contact number for party member,,Text
+EC12** - Artist Party,18412445609,Artist Travel Party Member Status,status,Input,Pending / Confirmed / Cancelled / Unknown,Status selector,Status
+EC12** - Artist Party,18412445609,Party Member Of,board_relation_mksce4jt,Connection,Links to artist record,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Artist Party,18412445609,Artist Party Type,lookup_mm2bvnhf,Connection,Mirrors A/B/C Party classification,Artist Advancing Tracker,Mirror
+EC12** - Artist Party,18412445609,Person - Arrival Flight,board_relation_mm2b1dbp,Connection,Travel arrival details,Flights (18412445607),Board Relation
+EC12** - Artist Party,18412445609,Person - Arrival Flight Date,lookup_mm2beamz,Connection,When arriving (mirrors flight date),Flights,Mirror
+EC12** - Artist Party,18412445609,Person - Departure Flight,board_relation_mm2bt9hm,Connection,Travel departure details,Flights (18412445607),Board Relation
+EC12** - Artist Party,18412445609,Person - Departure Flight Date,lookup_mm2b9fbh,Connection,When departing (mirrors flight date),Flights,Mirror
+EC12** - Artist Party,18412445609,Person - Hotel Room,board_relation_mm2bmd53,Connection,Room assignment,Hotel Rooms (18412445608),Board Relation
+EC12** - Artist Party,18412445609,Person - Hotel Timeline,timerange_mm2bhjbp,Input,Stay duration dates,,Timeline
+EC12** - Artist Party,18412445609,Person - Hotel Nights,formula_mm2b4fnv,Calculated,Calculates stay length,Formula: DAYS(End Start),Formula
+EC12** - Dressing Rooms,18412445610,Name,name,Key,Dressing room identifier,,Text
+EC12** - Dressing Rooms,18412445610,Artist @ Dressing Room,board_relation__1,Connection,Links to artist assignments,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Dressing Rooms,18412445610,Stage,mirror6__1,Connection,Mirrors stage assignment,Artist Advancing Tracker,Mirror
+EC12** - Dressing Rooms,18412445610,DR Requested,mirror1__1,Connection,Mirrors dressing room preferences,Artist Advancing Tracker,Mirror
+EC12** - Dressing Rooms,18412445610,Show Day,mirror__1,Connection,Mirrors show day (16/07-20/07),Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Name,name,Key,Transfer identifier,,Text
+EC12** - Transfers,18412445611,Transfer Status,status__1,Input,Auto-created / Has Date / Has Passengers / Route notes added / Complete / Must check / Placeholder / Published,Status selector,Status
+EC12** - Transfers,18412445611,Artist @ Transfer,board_relation__1,Connection,Links transfer to artist,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Transfers,18412445611,Show Day,mirror120__1,Connection,Mirrors show day,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Stage,mirror3__1,Connection,Mirrors stage assignment,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Route Type,label__1,Input,30+ route options (Airport-Hotel/Hotel-Show/Load-in),Status with 30+ options,Status
+EC12** - Transfers,18412445611,Route Date,date__1,Input,When transfer needed,,Date
+EC12** - Transfers,18412445611,Passengers,numbers__1,Input,Headcount for route,,Number
+EC12** - Transfers,18412445611,Route Notes,long_text__1,Input,Special instructions & logistics,,Long Text
+EC12** - Transfers,18412445611,Route Cargo,long_text6__1,Input,Equipment/materials being transported,,Long Text
+EC12** - Transfers,18412445611,Flight Associated with Route,text__1,Input,Flight number reference for cross-ref,,Text
+EC12** - Transfers,18412445611,Flight Time @ CLJ,text9__1,Input,Airport timing coordination,,Text
+EC12** - Transfers,18412445611,Pickup,label7__1,Input,Starting location (14 options),Status selector,Status
+EC12** - Transfers,18412445611,Dropoff,label70__1,Input,Destination location (11 options),Status selector,Status
+EC12** - Transfers,18412445611,Festival Gate,mirror7__1,Connection,Mirrors gate assignment,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Signage,mirror29__1,Connection,Mirrors signage notes,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Angel,mirror12__1,Connection,Mirrors angel assignment,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Angel Phone,mirror97__1,Connection,Mirrors angel contact,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Cargo,mirror__1,Connection,Mirrors equipment details,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Arrival Flight Date,mirror2__1,Connection,Mirrors flight info,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Arrival Flight No,mirror5__1,Connection,Mirrors flight identifier,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Departure Flight Date,mirror1__1,Connection,Mirrors flight info,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Departure Flight No,mirror91__1,Connection,Mirrors flight identifier,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Vehicle Preference,mirror9__1,Connection,Mirrors vehicle type request,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Transfers Requested,mirror0__1,Connection,Mirrors transfer requirements,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Hotel,mirror4__1,Connection,Mirrors hotel assignment,Artist Advancing Tracker,Mirror
+EC12** - Transfers,18412445611,Route Requested By,people__1,Input,Staff member requesting route,,People
+EC12** - Transfers,18412445611,Item ID,item_id__1,Key,System identifier,,Auto-generated
+EC12** - Transfers,18412445611,Google Sheets Row UUID,long_text2__1,Input,Automation/sync reference to external sheets,,Text
+EC12** - Artist Vehicles,18412445612,Name,name,Key,Vehicle identifier,,Text
+EC12** - Artist Vehicles,18412445612,Person,person,Input,Vehicle assigned to person,,People
+EC12** - Artist Vehicles,18412445612,Status,status,Input,Working on it / Done / Stuck,Status selector,Status
+EC12** - Artist Vehicles,18412445612,Date,date4,Input,Vehicle-related date,,Date
+EC12** - Artist Vehicles,18412445612,Vehicle in Cluj,timerange_mm14jgq4,Input,Time vehicle in city,,Timeline
+EC12** - Artist Vehicles,18412445612,Vehicle on Site,timerange_mm14pjqm,Input,Time vehicle at festival site,,Timeline
+EC12** - Artist Vehicles,18412445612,Artist's Vehicle,board_relation_mm14a1th,Connection,Links to artist owner,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Artist Vehicles,18412445612,Vehicle Type,color_mm145nvg,Input,Van or Truck,Status selector,Status
+EC12** - Artist Vehicles,18412445612,Vehicle Parked At,board_relation_mm14fz4v,Connection,Parking location,Accommodation (18412445605) / Stages (18412445613),Board Relation
+EC12** - Artist Vehicles,18412445612,Car Park Notes,lookup_mm145k0g,Connection,Mirrors parking details,Hotel or Stage,Mirror
+EC12** - Stages,18412445613,Name,name,Key,Stage identifier,,Text
+EC12** - Stages,18412445613,Artist (EC12),board_relation_mm14903,Connection,Links to artists,Artist Advancing Tracker (18412445614),Board Relation
+EC12** - Stages,18412445613,Stage Sponsored By,text,Input,Sponsor identification,,Text
+EC12** - Stages,18412445613,Capacity,numbers,Input,Audience capacity number,,Number
+EC12** - Stages,18412445613,H: A La Carte Menu,a_la_carte_menu,Input,Order for takeaway / Served to table / Buffet,Dropdown with 3 options,Dropdown
+EC12** - Stages,18412445613,H: Platter,dropdown74,Input,Made to order or Daily order,Dropdown with 2 options,Dropdown
+EC12** - Stages,18412445613,H: Overnight Food,dropdown3,Input,Food Court / Pizza / Platters / Menu,Dropdown with 4 options,Dropdown
+EC12** - Stages,18412445613,H: Lounge,dropdown8,Input,Lounge facilities,Dropdown,Dropdown
+EC12** - Stages,18412445613,H: Fridge,dropdown9,Input,DR / Bar / Storage / Team,Dropdown with 4 options,Dropdown
+EC12** - Stages,18412445613,H: Drinks,dropdown89,Input,Staffed Bar / Stage Fridge / Wristband / Rider only,Dropdown with 4 options,Dropdown
+EC12** - Stages,18412445613,Stage Index,numbers__1,Input,Stage ordering/numbering,,Number
+EC12** - Stages,18412445613,Item ID,item_id__1,Key,System identifier,,Auto-generated
+EC12** - Stages,18412445613,Link to Standard Drive Pack,text__1,Input,Technical documentation link,,Text
+EC12** - Stages,18412445613,Festival Gate,text4__1,Input,Gate entry point,,Text
+EC12** - Stages,18412445613,Team Members @ Stage,connect_boards2__1,Connection,Links staff,Team Members (18412445606),Board Relation
+EC12** - Stages,18412445613,Stage Info Status,color_mkpgw72a,Input,Confirm Details / Confirmed / Stuck,Status selector,Status
+EC12** - Artist Advancing Tracker,18412445614,Name,name,Key,Artist/group name,,Text
+EC12** - Artist Advancing Tracker,18412445614,Subitems,subitems,Connection,Links to Tasks board,Tasks (18412445626),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,Advancing Lead,person,Input,Responsible staff member,,People
+EC12** - Artist Advancing Tracker,18412445614,Advancing Status,status,Input,15 states for workflow tracking,Status selector with 15 options,Status
+EC12** - Artist Advancing Tracker,18412445614,Artist Party Type,dropdown_mm2bjhn9,Input,A Party / B Party / C Party / Other,Dropdown with 4 options,Dropdown
+EC12** - Artist Advancing Tracker,18412445614,Show Day,dropdown1__1,Input,16/07 Day 1 - 20/07 Day 5,Dropdown with 5 options,Dropdown
+EC12** - Artist Advancing Tracker,18412445614,Live Stage Slot,board_relation__1,Connection,Links to performance timing,Stage Timings board (18390343044),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,Stage Name (from Timings),lookup_mksehn57,Connection,Mirrors stage name,Stage Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Stage Slot Type,mirror38__1,Connection,Mirrors slot classification,Stage Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Duration (m),mirror64__1,Connection,Mirrors set length in minutes,Stage Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Show Start Time,mirror45__1,Connection,Mirrors performance start time,Stage Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Show End Time,mirror901__1,Connection,Mirrors performance end time,Stage Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Soundcheck Slot,connect_boards235__1,Connection,Links to rehearsal timing,Soundcheck Timings board (18390342430),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,Soundcheck Stage Slot Type,mirror57__1,Connection,Mirrors soundcheck classification,Soundcheck Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Soundcheck Duration (m),mirror8__1,Connection,Mirrors soundcheck length,Soundcheck Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Soundcheck Starts,mirror761__1,Connection,Mirrors soundcheck start,Soundcheck Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Soundcheck Ends,mirror464__1,Connection,Mirrors soundcheck end,Soundcheck Timings,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Artist Type,dropdown9,Input,1. Headliner - 6. VIP,Dropdown with 6 options,Dropdown
+EC12** - Artist Advancing Tracker,18412445614,Actions Completed,dropdown,Input,39-item multi-select checklist,Dropdown with 39 options,Dropdown
+EC12** - Artist Advancing Tracker,18412445614,Item ID,item_id,Key,System identifier,,Auto-generated
+EC12** - Artist Advancing Tracker,18412445614,Stage (Corrected),board_relation3,Connection,Primary stage link,Stages (18412445613),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,Festival Gate,mirror2__1,Connection,Mirrors gate assignment,Stages,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Stage Index,mirror0__1,Connection,Mirrors stage ordering,Stages,Mirror
+EC12** - Artist Advancing Tracker,18412445614,Artist Origin,artist_origin__1,Input,INT / RO / Local / SKIP!,Status selector,Status
+EC12** - Artist Advancing Tracker,18412445614,Hotel Timeline,timeline5,Input,Accommodation date range,,Timeline
+EC12** - Artist Advancing Tracker,18412445614,Hotel Nights,formula_mksc17p1,Calculated,Calculates stay length,Formula: DAYS(End Start),Formula
+EC12** - Artist Advancing Tracker,18412445614,Related Artist/Crew,connect_boards9__1,Connection,Links other related artists,Self-referential,Board Relation
+EC12** - Artist Advancing Tracker,18412445614,Nights Paid by EC,numbers_16,Input,EC-funded accommodation nights,,Number
+EC12** - Artist Advancing Tracker,18412445614,Nights Paid by Artist,formula4,Calculated,Total nights - EC nights,Formula,Formula
+EC12** - Artist Advancing Tracker,18412445614,A Party Size,numbers,Input,Tier A party headcount,,Number
+EC12** - Artist Advancing Tracker,18412445614,B Party Size,numeric_mksczbrh,Input,Tier B party headcount,,Number
+EC12** - Artist Advancing Tracker,18412445614,C Party Size,numbers3,Input,Tier C party headcount,,Number
+EC12** - Artist Advancing Tracker,18412445614,Other Travel Party,numbers__1,Input,Additional entourage,,Number
+EC12** - Artist Advancing Tracker,18412445614,Travel Party Total,formula,Calculated,A+B+C+Other sum,Formula,Formula
+EC12** - Artist Advancing Tracker,18412445614,Hotel Notes,hotel_notes,Input,Accommodation details & notes,,Long Text
+EC12** - Artist Advancing Tracker,18412445614,Rooming List,rooming_list,Input,Room assignments for party,,Long Text
+EC12** - Artist Advancing Tracker,18412445614,A Party Hotel,board_relation7,Connection,Accommodation for A Party,Accommodation (18412445605),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,B Party Hotel,board_relation_mm14c373,Connection,Accommodation for B Party,Accommodation (18412445605),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,C Party Hotel,board_relation35,Connection,Accommodation for C Party,Accommodation (18412445605),Board Relation
+EC12** - Artist Advancing Tracker,18412445614,Artist Pack Link,link__1,Input,External documentation link,,Link
+EC12** - Artist Advancing Tracker,18412445614,Travel Party Names - Text,long_text__1,Input,Internal reference (marked for deletion),Deprecated,Long Text
+EC12** - Artist Advancing Tracker,18412445614,Req Level,label__1,Input,Chill / 💅 / 💅💅 / 💅💅💅,Status selector,Status

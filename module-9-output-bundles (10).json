@@ -1,0 +1,550 @@
+[
+    {
+        "id": "18412445605",
+        "name": "EC12** - Accommodation",
+        "type": "board",
+        "description": null,
+        "state": "active",
+        "board_folder_id": "20390454",
+        "board_kind": "public",
+        "columns": [
+            {
+                "id": "name",
+                "type": "name",
+                "title": "Name",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "subitems",
+                "type": "subtasks",
+                "title": "Subitems",
+                "settings": {
+                    "allowMultipleItems": true,
+                    "itemTypeName": "column.subtasks.title",
+                    "displayType": "BOARD_INLINE",
+                    "boardIds": [
+                        18412445627
+                    ]
+                },
+                "settings_str": "{\"allowMultipleItems\":true,\"itemTypeName\":\"column.subtasks.title\",\"displayType\":\"BOARD_INLINE\",\"boardIds\":[18412445627]}"
+            },
+            {
+                "id": "label__1",
+                "type": "status",
+                "title": "Hotel Type",
+                "settings": {
+                    "labels": [
+                        {
+                            "id": 0,
+                            "color": 3,
+                            "label": "Camping Access",
+                            "index": 3,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#007eb5"
+                        },
+                        {
+                            "id": 1,
+                            "color": 16,
+                            "label": "Camping",
+                            "index": 4,
+                            "is_done": true,
+                            "is_deactivated": false,
+                            "hex": "#66ccff"
+                        },
+                        {
+                            "id": 3,
+                            "color": 103,
+                            "label": "★★★★",
+                            "index": 1,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#ffadad"
+                        },
+                        {
+                            "id": 105,
+                            "color": 8,
+                            "label": "★★★★★",
+                            "index": 0,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#cab641"
+                        },
+                        {
+                            "id": 156,
+                            "color": 102,
+                            "label": "★★★",
+                            "index": 2,
+                            "is_done": false,
+                            "is_deactivated": false,
+                            "hex": "#faa1f1"
+                        }
+                    ]
+                },
+                "settings_str": "{\"done_colors\":[1],\"color_mapping\":{\"0\":3,\"1\":16,\"3\":103,\"8\":105,\"16\":1,\"102\":156,\"103\":3,\"105\":8,\"156\":102},\"labels_descriptions\":{},\"deactivated_labels\":[],\"labels\":{\"0\":\"Camping Access\",\"1\":\"Camping\",\"3\":\"★★★★\",\"105\":\"★★★★★\",\"156\":\"★★★\"},\"labels_positions_v2\":{\"0\":3,\"1\":4,\"3\":1,\"105\":0,\"156\":2},\"labels_colors\":{\"0\":{\"color\":\"#007eb5\"},\"1\":{\"color\":\"#66ccff\"},\"3\":{\"color\":\"#ffadad\"},\"105\":{\"color\":\"#cab641\"},\"156\":{\"color\":\"#faa1f1\"}}}"
+            },
+            {
+                "id": "long_text__1",
+                "type": "long_text",
+                "title": "Hotel Address",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text__1",
+                "type": "text",
+                "title": "Google Maps Pin",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text5__1",
+                "type": "text",
+                "title": "Front Desk Phone Number",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text7__1",
+                "type": "text",
+                "title": "Front Desk Email",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text8__1",
+                "type": "text",
+                "title": "Standard Check-in Time",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text2__1",
+                "type": "text",
+                "title": "Standard Check-out time",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text3__1",
+                "type": "text",
+                "title": "Breakfast available",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text0__1",
+                "type": "text",
+                "title": "Restaurant Opening tImes",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text4__1",
+                "type": "text",
+                "title": "Room Service availability",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text9__1",
+                "type": "text",
+                "title": "Wellness",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "item_id__1",
+                "type": "item_id",
+                "title": "Item ID",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "text71__1",
+                "type": "text",
+                "title": "Laundry",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "link__1",
+                "type": "link",
+                "title": "Hotel Website",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "long_text_mkswx8cv",
+                "type": "long_text",
+                "title": "Breakfast Timings",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "long_text_mkswytb5",
+                "type": "long_text",
+                "title": "Hotel Car Park",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "connect_boards54",
+                "type": "board_relation",
+                "title": "Artists - Artist Tracker @ Hotel",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445614
+                    ],
+                    "boardId": 18412445614
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445614],\"boardId\":18412445614}"
+            },
+            {
+                "id": "mirror5",
+                "type": "mirror",
+                "title": "Total Artist Party per Hotel",
+                "settings": {
+                    "relation_column": {
+                        "connect_boards54": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "formula"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"connect_boards54\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"formula\"]}}"
+            },
+            {
+                "id": "mirror8",
+                "type": "mirror",
+                "title": "Hotel Dates",
+                "settings": {
+                    "relation_column": {
+                        "connect_boards54": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "timeline5"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"connect_boards54\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"timeline5\"]}}"
+            },
+            {
+                "id": "board_relation_mkxdj428",
+                "type": "board_relation",
+                "title": "Hotel Rooms",
+                "settings": {
+                    "boardIds": [
+                        18412445608
+                    ],
+                    "allowCreateReflectionColumn": true,
+                    "boardId": 18412445608
+                },
+                "settings_str": "{\"boardIds\":[18412445608],\"allowCreateReflectionColumn\":true,\"boardId\":18412445608}"
+            }
+        ],
+        "tags": [],
+        "views": [
+            {
+                "type": null,
+                "settings": {},
+                "view_specific_data_str": "{}",
+                "name": "Timeline",
+                "id": "256680608"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "status5",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text_mkswx8cv",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text_mkswytb5",
+                                "visible": false
+                            }
+                        ],
+                        "column_order": [
+                            "name",
+                            "subitems",
+                            "connect_boards",
+                            "mirror9",
+                            "mirror_2",
+                            "mirror",
+                            "mirror_1",
+                            "mirror5",
+                            "mirror8",
+                            "connect_boards54",
+                            "mirror83",
+                            "connect_boards3",
+                            "mirror87",
+                            "mirror96",
+                            "mirror7"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Test Hotel Workflow",
+                "id": "256680611"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "board_relation7",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "status5",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text_mkswx8cv",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "long_text_mkswytb5",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": [],
+                        "column_order": [
+                            "name",
+                            "subitems",
+                            "lookup2",
+                            "text",
+                            "lookup",
+                            "connect_boards",
+                            "mirror9",
+                            "mirror_2",
+                            "mirror",
+                            "mirror_1",
+                            "mirror5",
+                            "mirror8",
+                            "connect_boards54",
+                            "mirror83",
+                            "connect_boards3",
+                            "mirror_13",
+                            "mirror87",
+                            "mirror96",
+                            "mirror7",
+                            "board_relation7",
+                            "mirror0",
+                            "mirror877",
+                            "board_relation3",
+                            "status5"
+                        ]
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Hotel Allocation",
+                "id": "256680614"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {
+                        "column_properties": [
+                            {
+                                "column_id": "connect_boards54",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror0",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror877",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror5",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror83",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror8",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "connect_boards3",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror_13",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror96",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror7",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "mirror87",
+                                "visible": false
+                            },
+                            {
+                                "column_id": "item_id__1",
+                                "visible": false
+                            }
+                        ],
+                        "subitems_column_properties": []
+                    }
+                },
+                "view_specific_data_str": "{}",
+                "name": "Hotel Info 2025",
+                "id": "256680616"
+            },
+            {
+                "type": "FeatureBoardView",
+                "settings": {
+                    "app_feature_id": 15528052
+                },
+                "view_specific_data_str": "{\"view_url\":\"https://electriccastle.monday.com/app_feature_embedded/15528052/board_view/167849374\",\"mobile_url\":\"https://electriccastle.monday.com/app_feature_embedded/15528052/board_view/167849374?mode=mobile\",\"view_subtype\":\"monday-vibe-app\"}",
+                "name": "Build Vibe view",
+                "id": "256680618"
+            }
+        ],
+        "communication": null,
+        "item_terminology": "Hotel",
+        "owner": "37877989",
+        "mappable_column_settings": {
+            "name": {},
+            "subitems": {
+                "allowMultipleItems": true,
+                "itemTypeName": "column.subtasks.title",
+                "displayType": "BOARD_INLINE",
+                "boardIds": [
+                    18412445627
+                ]
+            },
+            "label__1": {
+                "done_colors": [
+                    1
+                ],
+                "color_mapping": {
+                    "0": 3,
+                    "1": 16,
+                    "3": 103,
+                    "8": 105,
+                    "16": 1,
+                    "102": 156,
+                    "103": 3,
+                    "105": 8,
+                    "156": 102
+                },
+                "labels_descriptions": {},
+                "deactivated_labels": [],
+                "labels": {
+                    "0": "Camping Access",
+                    "1": "Camping",
+                    "3": "★★★★",
+                    "105": "★★★★★",
+                    "156": "★★★"
+                },
+                "labels_positions_v2": {
+                    "0": 3,
+                    "1": 4,
+                    "3": 1,
+                    "105": 0,
+                    "156": 2
+                },
+                "labels_colors": {
+                    "0": {
+                        "color": "#007eb5"
+                    },
+                    "1": {
+                        "color": "#66ccff"
+                    },
+                    "3": {
+                        "color": "#ffadad"
+                    },
+                    "105": {
+                        "color": "#cab641"
+                    },
+                    "156": {
+                        "color": "#faa1f1"
+                    }
+                }
+            },
+            "long_text__1": {},
+            "text__1": {},
+            "text5__1": {},
+            "text7__1": {},
+            "text8__1": {},
+            "text2__1": {},
+            "text3__1": {},
+            "text0__1": {},
+            "text4__1": {},
+            "text9__1": {},
+            "item_id__1": {},
+            "text71__1": {},
+            "link__1": {},
+            "long_text_mkswx8cv": {},
+            "long_text_mkswytb5": {},
+            "connect_boards54": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445614
+                ],
+                "boardId": 18412445614
+            },
+            "mirror5": {
+                "relation_column": {
+                    "connect_boards54": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "formula"
+                    ]
+                }
+            },
+            "mirror8": {
+                "relation_column": {
+                    "connect_boards54": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "timeline5"
+                    ]
+                }
+            },
+            "board_relation_mkxdj428": {
+                "boardIds": [
+                    18412445608
+                ],
+                "allowCreateReflectionColumn": true,
+                "boardId": 18412445608
+            }
+        }
+    }
+]

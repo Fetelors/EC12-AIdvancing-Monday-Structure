@@ -1,0 +1,66 @@
+
+
+## EC12 Monday — Interactions & User Stories (from Team Feedback)
+
+---
+
+### Interactions
+
+**Interaction: Clean Artist Advancing Tracker**
+- Only essential fields are shown on the board
+- Fields removed: Actions Completed, Nights Paid by EC/Artist, Other Travel Party, Initial Rider, Ethernet/00 Req, Record email to CC, Related Artist Crew
+- Each field present on the board has a documented purpose tied to a workflow step
+
+**Interaction: Advancing Actions (Deprecated)**
+- The Advancing Actions by Stage board is not used in EC12
+- Each Advancing Lead tracks their own progress independently
+- Existing email templates serve as the tracking reference
+
+**Interaction: Artist Party Data Cleanup**
+- All outdated or legacy data is removed from Artist Party records before the edition goes live
+- A cleanup checklist runs on migration to flag any records with legacy fields still populated
+
+**Interaction: Team Members Record**
+- Each Team Member record contains: Name, Team, Role, Phone Number, Email, Stage
+- No additional fields; no outdated data carried over
+
+**Interaction: Stages Record**
+- Each Stage record is fully updated with: Capacity, Schedule, Stage Manager, Backstage Manager, and other relevant role connections
+- Stage connections are validated before advancing opens
+
+**Interaction: Complex Transfer Handling**
+- When an artist has multiple flights, the system handles assignment without requiring manual selection of each individual leg
+- No redundant select/deselect steps when building routes from flight records
+
+**Interaction: Itinerary Generation**
+- Itinerary follows a simple chronological flow
+- Contacts displayed at the top in order: Booking → Advancing → Hotel → Angel
+- Transfers pulled directly from Monday (no copy-paste from transport table required)
+- Full stage schedule for the day is displayed automatically
+- Fields removed from itinerary output: pre-requested meals on site/hotel
+
+**Interaction: Stage Timings in Itinerary**
+- Stage Timings integrate correctly into itineraries without manual fixes
+- Artists with multiple slots on different stages display correctly in itinerary view
+
+---
+
+### User Stories
+
+- As an Advancing Lead, I want the Artist Advancing Tracker to only show fields I actively use, so I don't waste time scrolling past irrelevant or legacy data
+- As an Advancing Lead, I want outdated Artist Party data to be removed before the edition starts, so automations don't break or produce errors in itineraries
+- As a Hospitality Manager, I want each team member to track their own advancing progress using email templates, so I don't need a separate tracking board to manage the process
+- As a Data Owner, I want Team Member records to contain only current, relevant fields, so the board stays clean and usable across the festival run
+- As a Stage Manager, I want my stage record to show accurate capacity, schedule, and role connections, so the wider team can rely on it as a source of truth
+- As an Advancing Lead, I want to handle artists with multiple flights without manually selecting each leg, so I can build transfer routes faster and with fewer errors
+- As an Advancing Lead, I want itineraries to pull transfers directly from Monday, so I don't have to copy-paste from the transport table and risk introducing errors
+- As a Tour Manager (recipient), I want to see key contacts at the top of my itinerary in a consistent order, so I can quickly reach the right person without reading through the full document
+- As an Advancing Lead, I want the stage schedule for the day to appear automatically in the itinerary, so I don't need to add it manually for each artist
+- As an Advancing Lead, I want artists with multiple slots on different stages to display correctly in itinerary view, so their day reads accurately without manual fixes
+
+---
+
+A few notes on what I translated vs. what I flagged as needing decisions:
+
+The feedback document includes three open questions that aren't yet resolved — whether transfers can be pulled directly from Monday, how stage timings integrate, and how multi-stage artists display. I've written the user stories and interactions as the *desired end state*, but these will need a spec decision before they can become build tasks. Worth flagging separately as **TBD / Design Required** items if you're using this for a roadmap board.
+

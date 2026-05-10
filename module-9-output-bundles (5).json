@@ -1,0 +1,167 @@
+[
+    {
+        "id": "18412445610",
+        "name": "EC12** - Dressing Rooms",
+        "type": "board",
+        "description": null,
+        "state": "active",
+        "board_folder_id": "20390454",
+        "board_kind": "public",
+        "columns": [
+            {
+                "id": "name",
+                "type": "name",
+                "title": "Name",
+                "settings": {},
+                "settings_str": "{}"
+            },
+            {
+                "id": "board_relation__1",
+                "type": "board_relation",
+                "title": "Artist @ Dressing Room",
+                "settings": {
+                    "allowCreateReflectionColumn": true,
+                    "boardIds": [
+                        18412445614
+                    ],
+                    "boardId": null
+                },
+                "settings_str": "{\"allowCreateReflectionColumn\":true,\"boardIds\":[18412445614],\"boardId\":null}"
+            },
+            {
+                "id": "mirror6__1",
+                "type": "mirror",
+                "title": "Stage",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "board_relation3"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"board_relation3\"]}}"
+            },
+            {
+                "id": "mirror1__1",
+                "type": "mirror",
+                "title": "DR Requested",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "dropdown32__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"dropdown32__1\"]}}"
+            },
+            {
+                "id": "mirror__1",
+                "type": "mirror",
+                "title": "Show Day",
+                "settings": {
+                    "relation_column": {
+                        "board_relation__1": true
+                    },
+                    "displayed_column": {},
+                    "displayed_linked_columns": [
+                        {
+                            "board_id": "18412445614",
+                            "column_ids": [
+                                "dropdown1__1"
+                            ]
+                        }
+                    ]
+                },
+                "settings_str": "{\"relation_column\":{\"board_relation__1\":true},\"displayed_column\":{},\"displayed_linked_columns\":{\"18412445614\":[\"dropdown1__1\"]}}"
+            }
+        ],
+        "tags": [],
+        "views": [
+            {
+                "type": null,
+                "settings": {},
+                "view_specific_data_str": "{}",
+                "name": "DR Maps",
+                "id": "256680595"
+            },
+            {
+                "type": "TableBoardView",
+                "settings": {
+                    "columns": {}
+                },
+                "view_specific_data_str": "{}",
+                "name": "Main Stage",
+                "id": "256680600"
+            },
+            {
+                "type": "FeatureBoardView",
+                "settings": {
+                    "app_feature_id": 15528052
+                },
+                "view_specific_data_str": "{\"view_url\":\"https://electriccastle.monday.com/app_feature_embedded/15528052/board_view/167849364\",\"mobile_url\":\"https://electriccastle.monday.com/app_feature_embedded/15528052/board_view/167849364?mode=mobile\",\"view_subtype\":\"monday-vibe-app\"}",
+                "name": "Build Vibe view",
+                "id": "256680605"
+            }
+        ],
+        "communication": null,
+        "item_terminology": "Dressing Room",
+        "owner": "37877989",
+        "mappable_column_settings": {
+            "name": {},
+            "board_relation__1": {
+                "allowCreateReflectionColumn": true,
+                "boardIds": [
+                    18412445614
+                ],
+                "boardId": null
+            },
+            "mirror6__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "board_relation3"
+                    ]
+                }
+            },
+            "mirror1__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "dropdown32__1"
+                    ]
+                }
+            },
+            "mirror__1": {
+                "relation_column": {
+                    "board_relation__1": true
+                },
+                "displayed_column": {},
+                "displayed_linked_columns": {
+                    "18412445614": [
+                        "dropdown1__1"
+                    ]
+                }
+            }
+        }
+    }
+]

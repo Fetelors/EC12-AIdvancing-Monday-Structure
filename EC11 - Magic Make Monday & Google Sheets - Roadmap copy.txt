@@ -1,0 +1,68 @@
+Interaction: KO in Status
+* Add artists to Monday from Accommodation table
+* Creates Google Drive Artist Folders (based on Stage, Artist Tier and Artist Origin) and adds standard information pack per stage as shortcut
+* Pastes link to google folder in the artist record
+
+
+Interaction: Assign flight
+* Assign flight from existing flight list
+   * Assign or create new passenger via “Artist Party Travel”
+* Pulls any luggage notes from artist level
+* When flight is assigned, ask if a user wishes to create a pickup route. leave the destination empty for user input. 
+
+
+Interaction: Assign/Create Artist vehicle
+* Artist vehicle can be nightliner, van etc
+* Has arrival date 
+* Dates fields for on-site parking
+* Dates fields for hotel parking
+* Dates can overlap, i.e. can be on site for ½ day only. 
+
+
+Interaction: Assign route
+* Select routes required, red mark until passengers (“Artist Party Travel” Members) are assigned or created.
+* Yellow mark remains until luggage is selected
+
+
+Interaction: Artist Travel Party Member Placeholder
+* When adding a number of people in a travel party, an option is offered to create all Travel Party Members from a list of names or a file. 
+* If the names are not available, the user can select “Create later” and another pop-up asks whether placeholders should be created. The user is advised to accept. 
+* When the final travel manifesto is received there should be an option to bulk replace the placeholders - Decide on the linking field
+
+
+NTH Interaction: Assign Meals
+* When a meal is assigned - a meal record is assigned, a meal subrecord (subitem) entry is created for “[artist] - meal” as per the item. 
+* Can pull through to the on-site hospitality report
+
+
+Rule: Artist Linking
+* Assume each artist record is another artist travel party
+* Depending on the Related Artist/Crew field 
+
+
+Progress Bar
+* Depending on the phases and the 
+
+
+
+
+User Stories:
+* User can generate email based on Monday fields and basic extra prompt
+* As an Advancing Lead, I want to be able to generate an email draft for the phase I'm in, that reminds me of all the missing datapoints from previous phases
+* As an Angel, I want to be able to see all my artist's timings and other relevant bits of information in one place
+* As a Hospitality Manager, I want to be able to see the team's progress in one view, so I can make better decisions
+* As a Hospitality Manager, I want to have a clear overview of the information the team is expecting from me, so I can provide it on time
+* As an Advancing Lead, I want to be able to quickly see a summary of what's outstanding to ask or to have confirmed by the artist, so I can chase them more efficiently
+* As an Advancing Lead, I want to be able to see an Artist Status Update/Tracker by workflow (travel, accommodation, rider), so I can better track my progress/output to other teams
+* As a Backstage Manager, I want to be able to see an arrivals/departures board for my stage
+* As a Backstage Manager, I want to see a summary of the advancing process, along with notes from the advancing team, so I can better welcome the artists
+* As a Backstage Manager, I want to see a summary of the artists on-site meals
+* As an Advancing Lead, I want to easily see my progress, so I can better manage my time and stay on track
+* As an Advancing Lead, I want to be able to assign people or placeholder people to flights and ground transfers, and for it to calculate the number of passengers per route requested
+* As an Advancing Lead, I want to easily create ground transfer routes, at the push of a button - perhaps prompts to ask which passengers to assign to this route, or if to take passengers from a specific flight assigned to that artist?
+* As an Advancing Lead, I want to be able to use a tool that extracts everything from the riders and structures them into a google sheet (Rider Alternatives)
+* As a Riders Coordinator, I want to the Rider Alternatives sheet to be populated with alternatives depending on artist type, origin etc, and for me to validate instead of input
+* As a Transport Coordinator, I want to be able to see any delayed flights on a dashboard, along with the artists affected by that, If cars are assigned, I want to see which drivers are affected, and which angels, so I can plan quicker
+* As a Transport Coordinator, I want to see highlights of transfer lines affected by flight issues at a glance, so I can handle any last minute cancellation quickly
+* As an Advancing Lead, I want to have a tool that keeps me on track and reminds me of what I should contact the artist with next, so I can move things forward efficiently
+* As an Advancing Lead at Main Stage, I want to manage the various parties separately, as linked unique artist records, so I can better keep track of progress for each
