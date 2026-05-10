@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EC12 — Field Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --primary:        #1B4332;
+    --primary-mid:    #2D6A4F;
+    --primary-light:  #52B788;
+    --cream:          #FDF6EC;
+    --cream-dark:     #F0E6D3;
+    --text:           #1A1A1A;
+    --text-mid:       #4A4A4A;
+    --text-soft:      #717171;
+
+    --c-performance:  #2563EB; --c-perf-light:   #DBEAFE;
+    --c-people:       #7C3AED; --c-people-light:  #EDE9FE;
+    --c-logistics:    #D97706; --c-log-light:     #FEF3C7;
+    --c-accom:        #059669; --c-accom-light:   #ECFDF5;
+    --c-inventory:    #D4614C; --c-inv-light:     #FAEAE7;
+
+    --ft-key-bg:      #EFF6FF; --ft-key-text:     #1D4ED8;
+    --ft-mirror-bg:   #F5F3FF; --ft-mirror-text:  #7C3AED;
+    --ft-input-bg:    #ECFDF5; --ft-input-text:   #065F46;
+    --ft-formula-bg:  #FFFBEB; --ft-formula-text: #92400E;
+    --ft-status-bg:   #FDF2F8; --ft-status-text:  #BE185D;
+    --ft-date-bg:     #EFF6FF; --ft-date-text:    #1E40AF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--primary);
+    padding: 18px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header h1 { font-family: 'Playfair Display', serif; color: white; font-size: 20px; }
+  header p { color: rgba(255,255,255,0.5); font-size: 11px; margin-top: 2px; }
+  .nav-pill {
+    font-size: 11px; color: rgba(255,255,255,0.65); text-decoration: none;
+    padding: 5px 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
+    transition: all 0.15s;
+  }
+  .nav-pill:hover { color: white; border-color: rgba(255,255,255,0.5); }
+
+  /* ── CONTEXT BAR ── */
+  .context-bar {
+    background: var(--primary-mid);
+    padding: 9px 32px;
+    display: flex; gap: 24px; align-items: center;
+  }
+  .ctx-item { font-size: 12px; color: rgba(255,255,255,0.7); }
+  .ctx-item strong { color: white; }
+
+  /* ── FIELD MODE TOGGLE ── */
+  .field-mode-bar {
+    background: white;
+    border-bottom: 2px solid var(--cream-dark);
+    padding: 10px 28px;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .mode-label {
+    font-size: 10px; font-weight: 700; color: var(--text-soft);
+    text-transform: uppercase; letter-spacing: 0.6px; margin-right: 4px;
+  }
+  .btn-mode {
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+    padding: 6px 18px; border-radius: 20px; border: 2px solid var(--cream-dark);
+    cursor: pointer; background: white; color: var(--text-mid);
+    display: flex; align-items: center; gap: 6px; transition: all 0.18s;
+  }
+  .btn-mode:hover { border-color: var(--primary-light); color: var(--primary); }
+  .btn-mode.active { background: var(--primary); border-color: var(--primary); color: white; }
+  .mode-sep { width: 1px; height: 22px; background: var(--cream-dark); margin: 0 4px; }
+
+  /* ── FILTER + COLLAPSE BAR ── */
+  .sub-bar {
+    background: var(--primary);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 7px 28px;
+    display: flex; gap: 8px; align-items: center;
+  }
+  .ctrl-label { font-size: 11px; color: rgba(255,255,255,0.45); }
+  .btn-ctrl {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+    padding: 4px 12px; border-radius: 6px; border: none; cursor: pointer;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75);
+    transition: all 0.15s;
+  }
+  .btn-ctrl:hover { background: rgba(255,255,255,0.18); color: white; }
+  .btn-ctrl.active { background: var(--primary-light); color: white; }
+
+  /* ── FIELD TYPE LEGEND ── */
+  .field-legend {
+    background: white; border-bottom: 1px solid var(--cream-dark);
+    padding: 7px 28px; display: none; align-items: center; gap: 18px;
+    flex-wrap: wrap; font-size: 11px; color: var(--text-soft);
+  }
+  .field-legend.visible { display: flex; }
+  .fl-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px; border-radius: 10px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.3px;
+  }
+  .fl-chip.key     { background: var(--ft-key-bg);     color: var(--ft-key-text); }
+  .fl-chip.mirror  { background: var(--ft-mirror-bg);  color: var(--ft-mirror-text); }
+  .fl-chip.input   { background: var(--ft-input-bg);   color: var(--ft-input-text); }
+  .fl-chip.formula { background: var(--ft-formula-bg); color: var(--ft-formula-text); }
+  .fl-chip.status  { background: var(--ft-status-bg);  color: var(--ft-status-text); }
+
+  /* ── INSTRUCTION STRIP ── */
+  .instructions {
+    text-align: center; font-size: 11px; color: var(--text-soft);
+    padding: 6px 32px 4px; font-style: italic; background: var(--cream);
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  /* ── CANVAS ── */
+  .canvas-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc(100vh - 220px);
+    min-height: 500px;
+    background: var(--cream);
+    cursor: grab;
+    user-select: none;
+  }
+  .canvas-wrap.panning { cursor: grabbing; }
+
+  #zoom-surface {
+    position: absolute;
+    top: 0; left: 0;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+
+  svg#diagram {
+    display: block;
+    width: 1600px;   /* fixed intrinsic width — zoom handles scaling */
+    height: auto;
+  }
+
+  /* ── ZOOM CONTROLS ── */
+  .zoom-controls {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    display: flex; flex-direction: column; gap: 6px;
+    z-index: 900;
+  }
+  .btn-zoom {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid var(--cream-dark);
+    background: white;
+    color: var(--text);
+    font-size: 18px; font-weight: 300; line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-zoom:hover { background: var(--primary); color: white; border-color: var(--primary); }
+  .btn-zoom.reset { font-size: 11px; font-weight: 700; letter-spacing: 0.3px; }
+  .zoom-level {
+    text-align: center; font-size: 10px; font-weight: 600;
+    color: var(--text-soft); font-family: 'DM Sans', sans-serif;
+    padding: 2px 0;
+  }
+
+  /* ── SVG TEXT CLASSES ── */
+  .node-label-main {
+    font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 11px;
+    text-anchor: middle; dominant-baseline: middle; pointer-events: none;
+  }
+  .node-label-sub {
+    font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 9px;
+    text-anchor: middle; dominant-baseline: middle; pointer-events: none; opacity: 0.65;
+  }
+  .node-count {
+    font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 9px;
+    text-anchor: middle; dominant-baseline: middle; pointer-events: none;
+  }
+  .pill-label {
+    font-family: 'DM Sans', sans-serif; font-size: 8px; font-weight: 500;
+    text-anchor: middle; dominant-baseline: middle; pointer-events: none;
+  }
+  .fid-label {
+    font-family: 'DM Sans', monospace; font-size: 7px;
+    text-anchor: middle; fill: #94A3B8; pointer-events: none; opacity: 0.85;
+  }
+  .node-wrap { cursor: pointer; }
+
+  /* ── TOOLTIP ── */
+  #tooltip {
+    position: fixed; pointer-events: none; background: var(--primary); color: white;
+    border-radius: 8px; padding: 8px 12px; font-size: 11px; line-height: 1.6;
+    max-width: 260px; opacity: 0; transition: opacity 0.15s; z-index: 999;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  #tooltip.visible { opacity: 1; }
+  #tooltip strong { display: block; color: var(--primary-light); font-weight: 700; margin-bottom: 2px; }
+  #tooltip .tt-sub { display: block; color: rgba(255,255,255,0.7); font-size: 10px; }
+  #tooltip .tt-fid { display: block; color: rgba(255,255,255,0.35); font-size: 9px; font-family: monospace; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>EC12 — Artist Advancing Tracker</h1>
+    <p>Field map · board connections · page 2 of 2</p>
+  </div>
+  <a href="ec12-sketch.html" class="nav-pill">← Overview (Page 1)</a>
+</header>
+
+<div class="context-bar">
+  <div class="ctx-item"><strong>3</strong> field views</div>
+  <div class="ctx-item">Click any board to expand · connected fields show on both ends simultaneously</div>
+  <div class="ctx-item">Hover lines for field IDs · hover pills for full field details</div>
+</div>
+
+<!-- Field mode toggle -->
+<div class="field-mode-bar">
+  <span class="mode-label">Show fields:</span>
+  <button class="btn-mode active" data-mode="connected" onclick="setFieldMode('connected')">
+    ↔ Connected Fields
+  </button>
+  <button class="btn-mode" data-mode="input" onclick="setFieldMode('input')">
+    ✏ Input Fields
+  </button>
+  <button class="btn-mode" data-mode="all" onclick="setFieldMode('all')">
+    ⊞ All Fields
+  </button>
+  <div class="mode-sep"></div>
+  <button class="btn-mode" data-mode="none" onclick="setFieldMode('none')">
+    ○ Overview only
+  </button>
+</div>
+
+<!-- Field type legend (shown in all/input modes) -->
+<div class="field-legend" id="field-legend">
+  <span>Field types:</span>
+  <div><span class="fl-chip key">↔ Key</span> board relation</div>
+  <div><span class="fl-chip mirror">⟵ Mirror</span> pulled from source</div>
+  <div><span class="fl-chip input">✏ Input</span> direct entry</div>
+  <div><span class="fl-chip formula">ƒ Formula</span> calculated</div>
+  <div><span class="fl-chip status">◉ Status</span> dropdown / label</div>
+</div>
+
+<!-- Instruction strip -->
+<div class="instructions" id="instructions">
+  Click any board to expand its connected fields — both AAT and the linked board unfurl simultaneously
+</div>
+
+<!-- Filter / collapse bar -->
+<div class="sub-bar">
+  <span class="ctrl-label">Filter:</span>
+  <button class="btn-ctrl active" id="btn-all"      onclick="setFilter('all')">All boards</button>
+  <button class="btn-ctrl"        id="btn-existing" onclick="setFilter('existing')">Existing only</button>
+  <button class="btn-ctrl"        id="btn-new"      onclick="setFilter('new')">New boards</button>
+  <div style="flex:1"></div>
+  <button class="btn-ctrl" onclick="collapseAll()">✕ Collapse</button>
+</div>
+
+<div class="canvas-wrap" id="canvas-wrap">
+  <div id="zoom-surface">
+  <svg id="diagram" viewBox="-344 -562 2688 3054" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+    <defs>
+      <marker id="arr-key" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <polygon points="0 0,6 3,0 6" fill="#1D4ED8" opacity="0.7"/>
+      </marker>
+      <marker id="arr-mirror" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <polygon points="0 0,6 3,0 6" fill="#7C3AED" opacity="0.7"/>
+      </marker>
+    </defs>
+    <!-- layer order: base connectors → field connectors → field pills → board nodes -->
+    <g id="base-connectors"></g>
+    <g id="field-connectors"></g>
+    <g id="field-pills"></g>
+    <g id="nodes"></g>
+  </svg>
+  </div>
+</div>
+
+<!-- Floating zoom controls -->
+<div class="zoom-controls">
+  <button class="btn-zoom" id="btn-zoom-in"  onclick="zoomBy(1.25)" title="Zoom in">+</button>
+  <div class="zoom-level" id="zoom-label">100%</div>
+  <button class="btn-zoom" id="btn-zoom-out" onclick="zoomBy(0.8)"  title="Zoom out">−</button>
+  <button class="btn-zoom reset" onclick="zoomReset()" title="Reset view">FIT</button>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// STATIC CONFIG
+// ═══════════════════════════════════════════════════════════════
+
+const CENTRE = { x: 1000, y: 900 };
+
+const CLUSTERS = {
+  performance: { color: '#2563EB', light: '#DBEAFE', label: 'Performance' },
+  people:      { color: '#7C3AED', light: '#EDE9FE', label: 'People' },
+  logistics:   { color: '#D97706', light: '#FEF3C7', label: 'Logistics' },
+  accom:       { color: '#059669', light: '#ECFDF5', label: 'Accommodation' },
+  inventory:   { color: '#D4614C', light: '#FAEAE7', label: 'Inventory' },
+};
+
+// Field type visual config
+const FT = {
+  key:     { bg: '#EFF6FF', text: '#1D4ED8', icon: '↔' },
+  mirror:  { bg: '#F5F3FF', text: '#7C3AED', icon: '⟵' },
+  input:   { bg: '#ECFDF5', text: '#065F46', icon: '✏' },
+  formula: { bg: '#FFFBEB', text: '#92400E', icon: 'ƒ' },
+  status:  { bg: '#FDF2F8', text: '#BE185D', icon: '◉' },
+  date:    { bg: '#EFF6FF', text: '#1E40AF', icon: '📅' },
+  people:  { bg: '#EDE9FE', text: '#6D28D9', icon: '👤' },
+};
+
+// ── BOARDS ──────────────────────────────────────────────────────
+const BOARDS = [
+  { id: 'team_members',     label: 'Team Members',         cluster: 'people',      isNew: false, fields: 19 },
+  { id: 'accommodation',    label: 'Accommodation',        cluster: 'accom',       isNew: false, fields: 30 },
+  { id: 'hotel_rooms',      label: 'Hotel Rooms',          cluster: 'accom',       isNew: true,  fields: 10 },
+  { id: 'flights',          label: 'Flights',              cluster: 'logistics',   isNew: false, fields: 18 },
+  { id: 'artist_party',     label: 'Artist Party',         cluster: 'people',      isNew: true,  fields: 15 },
+  { id: 'transfers',        label: 'Transfers',            cluster: 'logistics',   isNew: false, fields: 30 },
+  { id: 'artist_vehicles',  label: 'Artist Vehicles',      cluster: 'logistics',   isNew: true,  fields: 12 },
+  { id: 'stages',           label: 'Stages',               cluster: 'performance', isNew: false, fields: 24 },
+  { id: 'stage_timings',    label: 'Live Stage\nTimings',  cluster: 'performance', isNew: false, fields: 28 },
+  { id: 'load_in',          label: 'Load In',              cluster: 'performance', isNew: true,  fields: 9  },
+  { id: 'soundchecks',      label: 'Soundchecks',          cluster: 'performance', isNew: true,  fields: 11 },
+  { id: 'line_checks',      label: 'Line Checks',          cluster: 'performance', isNew: true,  fields: 9  },
+  { id: 'dressing_rooms',   label: 'Dressing\nRooms',      cluster: 'people',      isNew: false, fields: 5  },
+  { id: 'top_inventory',    label: 'Top Level\nInventory', cluster: 'inventory',   isNew: true,  fields: 7  },
+  { id: 'detail_inventory', label: 'Detailed\nInventory',  cluster: 'inventory',   isNew: true,  fields: 10 },
+  { id: 'meals',            label: 'Meals',                cluster: 'accom',       isNew: true,  fields: 11 },
+];
+
+// ── RADIAL POSITIONS — larger canvas ────────────────────────────
+const POS = {
+  team_members:     { angle:  30, r: 430 },
+  accommodation:    { angle:  50, r: 430 },
+  hotel_rooms:      { angle:  70, r: 425 },
+  flights:          { angle:  90, r: 430 },
+  artist_party:     { angle: 110, r: 425 },
+  transfers:        { angle: 130, r: 430 },
+  artist_vehicles:  { angle: 150, r: 425 },
+  stages:           { angle: 170, r: 430 },
+  stage_timings:    { angle: 190, r: 425 },
+  load_in:          { angle: 210, r: 425 },
+  soundchecks:      { angle: 230, r: 430 },
+  line_checks:      { angle: 250, r: 425 },
+  dressing_rooms:   { angle: 270, r: 430 },
+  top_inventory:    { angle: 290, r: 425 },
+  detail_inventory: { angle: 310, r: 425 },
+  meals:            { angle: 330, r: 430 },
+};
+
+// ── PILL SIZING ────────────────────────────────────────────────
+const PILL_W         = 210;  // pill width px
+const PILL_H         = 38;   // pill height px — rectangular/minimalist
+const PILL_R         = 5;    // corner radius
+const PILL_STEP      = 50;   // vertical spacing between pill centres
+const PILL_GAP       = 28;   // horizontal gap between AAT and board columns
+const NODE_HALF      = 52;   // half-width of board node rect
+// BOARD_PILL_DIST = distance from board node CENTRE to board pill column CENTRE.
+// Value 659 is geometrically verified: ensures the nearest edge of the entire
+// pill cluster (both columns) is ≥140px from the board node edge for all 16
+// board positions, accounting for diagonal boards where the corner of the
+// cluster is the nearest point, not its horizontal/vertical face.
+const BOARD_PILL_DIST = 659;
+
+// ── BASE BOARD-TO-BOARD CONNECTIONS (for background lines) ──────
+const BASE_CONNECTIONS = [
+  { from:'aat', to:'team_members' },     { from:'aat', to:'accommodation' },
+  { from:'aat', to:'hotel_rooms' },      { from:'aat', to:'flights' },
+  { from:'aat', to:'artist_party' },     { from:'aat', to:'transfers' },
+  { from:'aat', to:'artist_vehicles' },  { from:'aat', to:'stages' },
+  { from:'aat', to:'stage_timings' },    { from:'aat', to:'load_in' },
+  { from:'aat', to:'soundchecks' },      { from:'aat', to:'line_checks' },
+  { from:'aat', to:'dressing_rooms' },   { from:'aat', to:'top_inventory' },
+  { from:'aat', to:'meals' },
+  { from:'accommodation',   to:'hotel_rooms' },
+  { from:'artist_party',    to:'hotel_rooms' },
+  { from:'artist_party',    to:'meals' },
+  { from:'stages',          to:'team_members' },
+  { from:'top_inventory',   to:'stages' },
+  { from:'detail_inventory',to:'top_inventory' },
+  { from:'soundchecks',     to:'stages' },
+  { from:'load_in',         to:'stages' },
+  { from:'line_checks',     to:'stages' },
+  { from:'flights',         to:'artist_party' },
+  { from:'transfers',       to:'artist_party' },
+  { from:'meals',           to:'stages' },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// FIELD-LEVEL CONNECTIONS
+// aatName     — field name as it appears on AAT
+// aatFid      — field ID on AAT
+// boardId     — which satellite board
+// boardName   — field name as it appears on the satellite board
+// boardFid    — field ID on the satellite board
+// type        — 'key' (board_relation) | 'mirror'
+// ═══════════════════════════════════════════════════════════════
+const FIELD_CONNECTIONS = [
+  // ── Team Members ──────────────────────────────────────────────
+  { aatName:'Booked by',             aatFid:'connect_boards5',       boardId:'team_members', boardName:'Booking - INT',        boardFid:'link_to_ec10___stages2__1', type:'key' },
+  { aatName:'Angel',                 aatFid:'connect_boards7__1',    boardId:'team_members', boardName:'Angel',                boardFid:'board_relation__1',         type:'key' },
+  { aatName:'DOS Contact',           aatFid:'connect_boards8__1',    boardId:'team_members', boardName:'Artist',               boardFid:'board_relation_mkschse8',   type:'key' },
+  { aatName:'Party Members',         aatFid:'connect_boards4__1',    boardId:'team_members', boardName:'Artist',               boardFid:'board_relation_mkschse8',   type:'key' },
+  { aatName:'Booking contact email', aatFid:'mirror50__1',           boardId:'team_members', boardName:'Email',                boardFid:'email2__1',                 type:'mirror' },
+  { aatName:'Angel Phone Number',    aatFid:'mirror1__1',            boardId:'team_members', boardName:'Mobile No',            boardFid:'text7__1',                  type:'mirror' },
+  { aatName:'Email',                 aatFid:'mirror3__1',            boardId:'team_members', boardName:'Email',                boardFid:'email2__1',                 type:'mirror' },
+  { aatName:'Phone',                 aatFid:'mirror6__1',            boardId:'team_members', boardName:'Mobile No',            boardFid:'text7__1',                  type:'mirror' },
+  { aatName:'DOS Role',              aatFid:'mirror__1',             boardId:'team_members', boardName:'Role',                 boardFid:'text1__1',                  type:'mirror' },
+  { aatName:'Person Role',           aatFid:'mirror4__1',            boardId:'team_members', boardName:'Role',                 boardFid:'text1__1',                  type:'mirror' },
+
+  // ── Accommodation ─────────────────────────────────────────────
+  { aatName:'A Party Hotel',         aatFid:'board_relation7',       boardId:'accommodation', boardName:'A-Party Hotel',       boardFid:'connect_boards54',          type:'key' },
+  { aatName:'Crew Hotel',            aatFid:'board_relation35',      boardId:'accommodation', boardName:'Crew Hotel',          boardFid:'connect_boards3',           type:'key' },
+
+  // ── Hotel Rooms (new) ─────────────────────────────────────────
+  { aatName:'Artist Party (link)',   aatFid:'— new —',               boardId:'hotel_rooms',   boardName:'Occupants',           boardFid:'— new —',                   type:'key' },
+
+  // ── Flights ───────────────────────────────────────────────────
+  { aatName:'Arrivals',              aatFid:'connect_boards3__1',    boardId:'flights',       boardName:'Arriving',            boardFid:'board_relation__1',         type:'key' },
+  { aatName:'Departures',            aatFid:'connect_boards23__1',   boardId:'flights',       boardName:'Departing',           boardFid:'board_relation1__1',        type:'key' },
+  { aatName:'Flight Time @ CLJ',     aatFid:'mirror26__1',           boardId:'flights',       boardName:'Time @ CLJ',          boardFid:'hour__1',                   type:'mirror' },
+  { aatName:'Arr: Departure Time',   aatFid:'mirror08__1',           boardId:'flights',       boardName:'Departure Time',      boardFid:'hour5__1',                  type:'mirror' },
+  { aatName:'Arr: Arrival Time',     aatFid:'mirror39__1',           boardId:'flights',       boardName:'Arrival Time',        boardFid:'hour52__1',                 type:'mirror' },
+  { aatName:'Airline',               aatFid:'mirror51__1',           boardId:'flights',       boardName:'Airline',             boardFid:'label__1',                  type:'mirror' },
+  { aatName:'Arrival Date',          aatFid:'mirror00__1',           boardId:'flights',       boardName:'Flight Date',         boardFid:'date__1',                   type:'mirror' },
+  { aatName:'Dep: Departure Time',   aatFid:'mirror09__1',           boardId:'flights',       boardName:'Departure Time',      boardFid:'hour5__1',                  type:'mirror' },
+  { aatName:'Dep: Arrival Time',     aatFid:'mirror46__1',           boardId:'flights',       boardName:'Arrival Time',        boardFid:'hour52__1',                 type:'mirror' },
+  { aatName:'Departure Date',        aatFid:'mirror5__1',            boardId:'flights',       boardName:'Flight Date',         boardFid:'date__1',                   type:'mirror' },
+
+  // ── Artist Party (new) ────────────────────────────────────────
+  { aatName:'Artist Party (link)',   aatFid:'— new —',               boardId:'artist_party',  boardName:'Artist',              boardFid:'— new —',                   type:'key' },
+
+  // ── Transfers ─────────────────────────────────────────────────
+  { aatName:'Transfers',             aatFid:'connect_boards2__1',    boardId:'transfers',     boardName:'Artist requiring route', boardFid:'board_relation__1',      type:'key' },
+  { aatName:'Route Date',            aatFid:'mirror17__1',           boardId:'transfers',     boardName:'Route Date',          boardFid:'date__1',                   type:'mirror' },
+  { aatName:'Route Types',           aatFid:'mirror35__1',           boardId:'transfers',     boardName:'Route Type',          boardFid:'label__1',                  type:'mirror' },
+  { aatName:'Route Notes',           aatFid:'mirror9__1',            boardId:'transfers',     boardName:'Route notes',         boardFid:'long_text__1',              type:'mirror' },
+  { aatName:'Pickup',                aatFid:'mirror_18__1',          boardId:'transfers',     boardName:'Pickup',              boardFid:'label7__1',                 type:'mirror' },
+  { aatName:'Dropoff',               aatFid:'mirror71__1',           boardId:'transfers',     boardName:'Dropoff',             boardFid:'label70__1',                type:'mirror' },
+  { aatName:'Passengers',            aatFid:'mirror7__1',            boardId:'transfers',     boardName:'Passengers',          boardFid:'numbers__1',                type:'mirror' },
+
+  // ── Artist Vehicles (new) ─────────────────────────────────────
+  { aatName:'Artist Vehicles (link)',aatFid:'— new —',               boardId:'artist_vehicles',boardName:'Artist',             boardFid:'— new —',                   type:'key' },
+
+  // ── Stages ────────────────────────────────────────────────────
+  { aatName:'Stage',                 aatFid:'board_relation3',       boardId:'stages',        boardName:'Artist Advancing Tracker', boardFid:'connect_boards',      type:'key' },
+  { aatName:'Festival Gate',         aatFid:'mirror2__1',            boardId:'stages',        boardName:'Festival Gate',       boardFid:'text4__1',                  type:'mirror' },
+  { aatName:'Stage Index',           aatFid:'mirror0__1',            boardId:'stages',        boardName:'Stage Index',         boardFid:'numbers__1',                type:'mirror' },
+  { aatName:'Transport coord',       aatFid:'mirror002__1',          boardId:'stages',        boardName:'Transport Coord phone',boardFid:'mirror0__1',               type:'mirror' },
+
+  // ── Live Stage Timings ────────────────────────────────────────
+  { aatName:'Live Show Slot Name',   aatFid:'board_relation__1',     boardId:'stage_timings', boardName:'Artist Name',         boardFid:'connect_boards__1',         type:'key' },
+  { aatName:'Soundcheck Slot',       aatFid:'connect_boards235__1',  boardId:'stage_timings', boardName:'Artist @ Soundcheck', boardFid:'board_relation__1',         type:'key' },
+  { aatName:'Load in Slot',          aatFid:'board_relation0__1',    boardId:'stage_timings', boardName:'Artist @ Load in',    boardFid:'connect_boards9__1',        type:'key' },
+  { aatName:'Duration (m)',          aatFid:'mirror64__1',           boardId:'stage_timings', boardName:'Duration',            boardFid:'numbers__1',                type:'mirror' },
+  { aatName:'Show Start Time',       aatFid:'mirror45__1',           boardId:'stage_timings', boardName:'Start Time',          boardFid:'date__1',                   type:'mirror' },
+  { aatName:'Show End Time',         aatFid:'mirror901__1',          boardId:'stage_timings', boardName:'End Time',            boardFid:'formula_19__1',             type:'mirror' },
+  { aatName:'Stage Name (Timings)',  aatFid:'lookup_mksehn57',       boardId:'stage_timings', boardName:'Stage Name',          boardFid:'color_mksewb5q',            type:'mirror' },
+  { aatName:'Stage Slot Type',       aatFid:'mirror57__1',           boardId:'stage_timings', boardName:'Stage Slot Type',     boardFid:'label__1',                  type:'mirror' },
+  { aatName:'Soundcheck (m)',        aatFid:'mirror8__1',            boardId:'stage_timings', boardName:'Soundcheck (m)',      boardFid:'dup__of_duration__1',       type:'mirror' },
+  { aatName:'Soundcheck Starts',     aatFid:'mirror761__1',          boardId:'stage_timings', boardName:'Soundcheck Start',    boardFid:'dup__of_start_time__1',     type:'mirror' },
+  { aatName:'Load in (m)',           aatFid:'mirror19__1',           boardId:'stage_timings', boardName:'Load in (m)',         boardFid:'dup__of_soundcheck__m___1', type:'mirror' },
+  { aatName:'Load In Starts',        aatFid:'mirror_12__1',          boardId:'stage_timings', boardName:'Load in Starts',      boardFid:'date4__1',                  type:'mirror' },
+  { aatName:'Load in Ends',          aatFid:'mirror12__1',           boardId:'stage_timings', boardName:'Load in Ends',        boardFid:'dup__of_soundcheck_ends__1',type:'mirror' },
+
+  // ── Load In (new) ─────────────────────────────────────────────
+  { aatName:'Load In (link)',        aatFid:'— new —',               boardId:'load_in',       boardName:'Artist',              boardFid:'— new —',                   type:'key' },
+
+  // ── Soundchecks (new) ─────────────────────────────────────────
+  { aatName:'Soundchecks (link)',    aatFid:'— new —',               boardId:'soundchecks',   boardName:'Artist',              boardFid:'— new —',                   type:'key' },
+
+  // ── Line Checks (new) ─────────────────────────────────────────
+  { aatName:'Line Checks (link)',    aatFid:'— new —',               boardId:'line_checks',   boardName:'Artist',              boardFid:'— new —',                   type:'key' },
+
+  // ── Dressing Rooms ────────────────────────────────────────────
+  { aatName:'DR Allocated',          aatFid:'connect_boards0__1',    boardId:'dressing_rooms',boardName:'Artist',              boardFid:'board_relation__1',         type:'key' },
+  { aatName:'DR Requested',          aatFid:'dropdown32__1',         boardId:'dressing_rooms',boardName:'DR Requested',        boardFid:'mirror1__1',                type:'mirror' },
+
+  // ── Top Inventory (new) ───────────────────────────────────────
+  { aatName:'Stage',                 aatFid:'board_relation3',       boardId:'top_inventory', boardName:'Stage / Area',        boardFid:'— new —',                   type:'key' },
+
+  // ── Meals (new) ───────────────────────────────────────────────
+  { aatName:'Meals (link)',          aatFid:'— new —',               boardId:'meals',         boardName:'Artist',              boardFid:'— new —',                   type:'key' },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// ALL FIELDS PER BOARD (for Input Fields / All Fields modes)
+// ═══════════════════════════════════════════════════════════════
+const BOARD_FIELDS = {
+  team_members: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Team',                  fid:'label',                      type:'status' },
+    { name:'Mobile No',             fid:'text7__1',                   type:'input' },
+    { name:'Email',                 fid:'email2__1',                  type:'input' },
+    { name:'Role',                  fid:'text1__1',                   type:'input' },
+    { name:'Nickname',              fid:'text__1',                    type:'input' },
+    { name:'Role based at',         fid:'text16__1',                  type:'input' },
+    { name:'Backstage Hospitality', fid:'link_to_ec10___stages9__1',  type:'key' },
+    { name:'Stage Management',      fid:'link_to_ec10___stages0__1',  type:'key' },
+    { name:'Booking - INT',         fid:'link_to_ec10___stages2__1',  type:'key' },
+    { name:'Angel',                 fid:'board_relation__1',          type:'key' },
+    { name:'Artist',                fid:'board_relation_mkschse8',    type:'key' },
+    { name:'Hotel Dates',           fid:'lookup_mksqx7jh',            type:'mirror' },
+    { name:'Time tracking',         fid:'time_tracking__1',           type:'input' },
+    { name:'Item ID',               fid:'item_id__1',                 type:'input' },
+  ],
+  accommodation: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Hotel Type',            fid:'label__1',                   type:'status' },
+    { name:'Hotel Address',         fid:'long_text__1',               type:'input' },
+    { name:'Front Desk Phone',      fid:'text5__1',                   type:'input' },
+    { name:'Front Desk Email',      fid:'text7__1',                   type:'input' },
+    { name:'Check-in Time',         fid:'text8__1',                   type:'input' },
+    { name:'Check-out Time',        fid:'text2__1',                   type:'input' },
+    { name:'Breakfast available',   fid:'text3__1',                   type:'input' },
+    { name:'Hotel Website',         fid:'link__1',                    type:'input' },
+    { name:'Crew Hotel',            fid:'connect_boards3',            type:'key' },
+    { name:'A-Party Hotel',         fid:'connect_boards54',           type:'key' },
+    { name:'Crew',                  fid:'mirror87',                   type:'mirror' },
+    { name:'Hotel Notes',           fid:'mirror7',                    type:'mirror' },
+    { name:'Rooming List',          fid:'mirror96',                   type:'mirror' },
+    { name:'A-Party',               fid:'mirror83',                   type:'mirror' },
+    { name:'Travel Party',          fid:'mirror5',                    type:'mirror' },
+    { name:'Hotel Dates',           fid:'mirror8',                    type:'mirror' },
+  ],
+  hotel_rooms: [
+    { name:'Room Name / Number',    fid:'— new —',                    type:'input' },
+    { name:'Hotel',                 fid:'— new —',                    type:'key' },
+    { name:'Occupants',             fid:'— new —',                    type:'key' },
+    { name:'Room Type',             fid:'— new —',                    type:'status' },
+    { name:'Check-in Date',         fid:'— new —',                    type:'date' },
+    { name:'Check-out Date',        fid:'— new —',                    type:'date' },
+    { name:'Nights',                fid:'— new —',                    type:'formula' },
+    { name:'Hotel Notes',           fid:'— new —',                    type:'input' },
+    { name:'Booking Status',        fid:'— new —',                    type:'status' },
+    { name:'Item ID',               fid:'— new —',                    type:'input' },
+  ],
+  flights: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Status',                fid:'status',                     type:'status' },
+    { name:'Flight Date',           fid:'date__1',                    type:'date' },
+    { name:'Departure Time',        fid:'hour5__1',                   type:'input' },
+    { name:'Arrival Time',          fid:'hour52__1',                  type:'input' },
+    { name:'Time @ CLJ',            fid:'hour__1',                    type:'input' },
+    { name:'Airline',               fid:'label__1',                   type:'status' },
+    { name:'To/From',               fid:'text__1',                    type:'input' },
+    { name:'Route Type',            fid:'label8__1',                  type:'status' },
+    { name:'Arriving',              fid:'board_relation__1',          type:'key' },
+    { name:'Departing',             fid:'board_relation1__1',         type:'key' },
+    { name:'Passengers',            fid:'— new —',                    type:'key' },
+    { name:'Flight Notes',          fid:'long_text__1',               type:'input' },
+    { name:'Flight Number',         fid:'— new —',                    type:'input' },
+    { name:'Revised Arrival Time',  fid:'hour_mkrynmed',              type:'input' },
+  ],
+  artist_party: [
+    { name:'Full Name',             fid:'— new —',                    type:'input' },
+    { name:'Artist',                fid:'— new —',                    type:'key' },
+    { name:'Party Level',           fid:'— new —',                    type:'status' },
+    { name:'Role / Job Title',      fid:'— new —',                    type:'input' },
+    { name:'Email',                 fid:'— new —',                    type:'input' },
+    { name:'Phone',                 fid:'— new —',                    type:'input' },
+    { name:'Hotel Room',            fid:'— new —',                    type:'key' },
+    { name:'Hotel',                 fid:'— new —',                    type:'mirror' },
+    { name:'Hotel Dates',           fid:'— new —',                    type:'mirror' },
+    { name:'Dietary Requirements',  fid:'— new —',                    type:'input' },
+    { name:'Meals',                 fid:'— new —',                    type:'key' },
+    { name:'Accreditation Type',    fid:'— new —',                    type:'status' },
+    { name:'Angel',                 fid:'— new —',                    type:'key' },
+    { name:'Angel Phone',           fid:'— new —',                    type:'mirror' },
+    { name:'Item ID',               fid:'— new —',                    type:'input' },
+  ],
+  transfers: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Transfer Status',       fid:'status__1',                  type:'status' },
+    { name:'Artist requiring route',fid:'board_relation__1',          type:'key' },
+    { name:'Route Type',            fid:'label__1',                   type:'status' },
+    { name:'Route Date',            fid:'date__1',                    type:'date' },
+    { name:'Passengers (manual)',   fid:'numbers__1',                  type:'input' },
+    { name:'Route notes',           fid:'long_text__1',               type:'input' },
+    { name:'Pickup',                fid:'label7__1',                  type:'status' },
+    { name:'Dropoff',               fid:'label70__1',                 type:'status' },
+    { name:'Festival Gate',         fid:'mirror7__1',                 type:'mirror' },
+    { name:'Show Day',              fid:'mirror120__1',               type:'mirror' },
+    { name:'Stage',                 fid:'mirror3__1',                 type:'mirror' },
+    { name:'Angel',                 fid:'mirror12__1',                type:'mirror' },
+    { name:'Cargo',                 fid:'mirror__1',                  type:'mirror' },
+    { name:'Vehicle Preference',    fid:'mirror9__1',                 type:'mirror' },
+    { name:'Assigned Passengers',   fid:'— new —',                    type:'key' },
+    { name:'Pax Count (effective)', fid:'— new —',                    type:'formula' },
+  ],
+  artist_vehicles: [
+    { name:'Registration Number',   fid:'— new —',                    type:'input' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+    { name:'Vehicle Type',          fid:'— new —',                    type:'status' },
+    { name:'Date',                  fid:'— new —',                    type:'date' },
+    { name:'Vehicle in Cluj',       fid:'— new —',                    type:'input' },
+    { name:'Vehicle on Site',       fid:'— new —',                    type:'date' },
+    { name:'Artist',                fid:'— new —',                    type:'key' },
+    { name:'Car Park Notes',        fid:'— new —',                    type:'input' },
+    { name:'Vehicle parked at',     fid:'— new —',                    type:'input' },
+    { name:'Person / Owner',        fid:'— new —',                    type:'people' },
+  ],
+  stages: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Artist Advancing Tracker',fid:'connect_boards',           type:'key' },
+    { name:'Stage Sponsored by',    fid:'text',                       type:'input' },
+    { name:'Capacity',              fid:'numbers',                    type:'input' },
+    { name:'Backstage Managers',    fid:'connect_boards7__1',         type:'key' },
+    { name:'Stage Managers',        fid:'connect_boards3__1',         type:'key' },
+    { name:'Backstage Hosp. Phone', fid:'mirror5__1',                 type:'mirror' },
+    { name:'Stage Manager Phone',   fid:'mirror6__1',                 type:'mirror' },
+    { name:'Stage Manager Email',   fid:'mirror02__1',                type:'mirror' },
+    { name:'Stage Index',           fid:'numbers__1',                 type:'input' },
+    { name:'Festival Gate',         fid:'text4__1',                   type:'input' },
+    { name:'Transport Coord phone', fid:'mirror0__1',                 type:'mirror' },
+    { name:'A la carte menu',       fid:'a_la_carte_menu',            type:'status' },
+    { name:'2025 Details',          fid:'color_mkpgw72a',             type:'status' },
+  ],
+  stage_timings: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Stage Slot Status',     fid:'status',                     type:'status' },
+    { name:'Stage Slot Type',       fid:'label__1',                   type:'status' },
+    { name:'Stage Name',            fid:'color_mksewb5q',             type:'status' },
+    { name:'Artist Name',           fid:'connect_boards__1',          type:'key' },
+    { name:'Artist @ Soundcheck',   fid:'board_relation__1',          type:'key' },
+    { name:'Artist @ Load in',      fid:'connect_boards9__1',         type:'key' },
+    { name:'Stage',                 fid:'mirror__1',                  type:'mirror' },
+    { name:'Show Day',              fid:'mirror1__1',                 type:'mirror' },
+    { name:'Start Time',            fid:'date__1',                    type:'date' },
+    { name:'Duration',              fid:'numbers__1',                 type:'input' },
+    { name:'End Time',              fid:'formula_19__1',              type:'formula' },
+    { name:'Soundcheck Start',      fid:'dup__of_start_time__1',      type:'date' },
+    { name:'Soundcheck (m)',        fid:'dup__of_duration__1',        type:'input' },
+    { name:'Load in (m)',           fid:'dup__of_soundcheck__m___1',  type:'input' },
+    { name:'Load in Starts',        fid:'date4__1',                   type:'date' },
+  ],
+  load_in: [
+    { name:'Load In Name',          fid:'— new —',                    type:'input' },
+    { name:'Artist',                fid:'— new —',                    type:'key' },
+    { name:'Stage',                 fid:'— new —',                    type:'key' },
+    { name:'Load In Start',         fid:'— new —',                    type:'date' },
+    { name:'Duration (m)',          fid:'— new —',                    type:'input' },
+    { name:'Load In Ends',          fid:'— new —',                    type:'formula' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+    { name:'Notes',                 fid:'— new —',                    type:'input' },
+  ],
+  soundchecks: [
+    { name:'Soundcheck Name',       fid:'— new —',                    type:'input' },
+    { name:'Artist',                fid:'— new —',                    type:'key' },
+    { name:'Stage',                 fid:'— new —',                    type:'key' },
+    { name:'Stage Name',            fid:'— new —',                    type:'mirror' },
+    { name:'Show Day',              fid:'— new —',                    type:'mirror' },
+    { name:'Soundcheck Start',      fid:'— new —',                    type:'date' },
+    { name:'Duration (m)',          fid:'— new —',                    type:'input' },
+    { name:'Soundcheck Ends',       fid:'— new —',                    type:'formula' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+  ],
+  line_checks: [
+    { name:'Line Check Name',       fid:'— new —',                    type:'input' },
+    { name:'Artist',                fid:'— new —',                    type:'key' },
+    { name:'Stage',                 fid:'— new —',                    type:'key' },
+    { name:'Start Time',            fid:'— new —',                    type:'date' },
+    { name:'Duration (m)',          fid:'— new —',                    type:'input' },
+    { name:'Ends',                  fid:'— new —',                    type:'formula' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+  ],
+  dressing_rooms: [
+    { name:'Name',                  fid:'name',                       type:'input' },
+    { name:'Artist',                fid:'board_relation__1',          type:'key' },
+    { name:'Stage',                 fid:'mirror6__1',                 type:'mirror' },
+    { name:'DR Requested',          fid:'mirror1__1',                 type:'mirror' },
+    { name:'Show Day',              fid:'mirror__1',                  type:'mirror' },
+  ],
+  top_inventory: [
+    { name:'Category Name',         fid:'— new —',                    type:'input' },
+    { name:'Stage / Area',          fid:'— new —',                    type:'key' },
+    { name:'Total Items',           fid:'— new —',                    type:'formula' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+    { name:'Owner',                 fid:'— new —',                    type:'people' },
+    { name:'Notes',                 fid:'— new —',                    type:'input' },
+  ],
+  detail_inventory: [
+    { name:'Item Name',             fid:'— new —',                    type:'input' },
+    { name:'Category',              fid:'— new —',                    type:'key' },
+    { name:'Quantity',              fid:'— new —',                    type:'input' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+    { name:'Cost per unit',         fid:'— new —',                    type:'input' },
+    { name:'Total Cost',            fid:'— new —',                    type:'formula' },
+    { name:'Location',              fid:'— new —',                    type:'input' },
+  ],
+  meals: [
+    { name:'Meal Name',             fid:'— new —',                    type:'input' },
+    { name:'Person',                fid:'— new —',                    type:'key' },
+    { name:'Artist',                fid:'— new —',                    type:'mirror' },
+    { name:'Meal Type',             fid:'— new —',                    type:'status' },
+    { name:'Date',                  fid:'— new —',                    type:'date' },
+    { name:'Location',              fid:'— new —',                    type:'status' },
+    { name:'Stage / Area',          fid:'— new —',                    type:'key' },
+    { name:'Status',                fid:'— new —',                    type:'status' },
+  ],
+};
+
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+let fieldMode   = 'connected';
+let expandedBoard = null;
+let filterMode  = 'all';
+
+// ═══════════════════════════════════════════════════════════════
+// GEOMETRY
+// ═══════════════════════════════════════════════════════════════
+function toRad(deg) { return deg * Math.PI / 180; }
+
+function polarToXY(angle, r) {
+  const rad = toRad(angle - 90);
+  return { x: CENTRE.x + r * Math.cos(rad), y: CENTRE.y + r * Math.sin(rad) };
+}
+
+function getNodePos(id) {
+  if (id === 'aat') return CENTRE;
+  const p = POS[id]; if (!p) return CENTRE;
+  return polarToXY(p.angle, p.r);
+}
+
+// Board pills: vertical column, anchored radially OUTSIDE the board node.
+// All pills stack north-south (px=0, py=1) — same orientation for every board.
+function boardPillPositions(boardId, count) {
+  const p   = POS[boardId];
+  const rad = toRad(p.angle - 90);
+  const rx  = Math.cos(rad), ry = Math.sin(rad);
+  // Anchor = board node centre + BOARD_PILL_DIST radially outward
+  const ax  = CENTRE.x + rx * (p.r + BOARD_PILL_DIST);
+  const ay  = CENTRE.y + ry * (p.r + BOARD_PILL_DIST);
+  const startOff = -((count - 1) * PILL_STEP) / 2;
+  return Array.from({ length: count }, (_, i) => ({
+    x: ax,
+    y: ay + startOff + i * PILL_STEP,
+  }));
+}
+
+// AAT pills: same y-positions as board pills, horizontally offset INWARD.
+// Uses both rx and ry to determine direction — handles boards at all angles:
+//   Right half  (rx > 0.2):  AAT goes LEFT
+//   Left half   (rx < -0.2): AAT goes RIGHT
+//   Near-top    (ry < 0):    AAT goes RIGHT (board pill column is above centre)
+//   Near-bottom (ry >= 0):   AAT goes LEFT  (board pill column is below centre)
+function aatPillPositions(boardId, count) {
+  const bp  = boardPillPositions(boardId, count);
+  const p   = POS[boardId];
+  const rad = toRad(p.angle - 90);
+  const rx  = Math.cos(rad);
+  const ry  = Math.sin(rad);
+  let xOffset;
+  if (Math.abs(rx) > 0.2) {
+    // Clearly left or right — inward = opposite of rx direction
+    xOffset = rx > 0 ? -(PILL_W + PILL_GAP) : (PILL_W + PILL_GAP);
+  } else {
+    // Near top or bottom — use ry to pick a side that doesn't overlap
+    xOffset = ry < 0 ? (PILL_W + PILL_GAP) : -(PILL_W + PILL_GAP);
+  }
+  return bp.map(pos => ({ x: pos.x + xOffset, y: pos.y }));
+}
+
+// For non-connected modes (input / all): just one column outside the board
+function singleColumnPositions(boardId, count) {
+  return boardPillPositions(boardId, count);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SVG HELPERS
+// ═══════════════════════════════════════════════════════════════
+function svgEl(tag, attrs = {}) {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+}
+
+// Only truncate very long strings — pills are wide enough for ~22 chars at 13px
+function trunc(str, n = 22) { return str.length > n ? str.slice(0, n - 1) + '…' : str; }
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER — BASE LAYER (connectors + board nodes)
+// ═══════════════════════════════════════════════════════════════
+function renderBase() {
+  renderBaseConnectors();
+  renderNodes();
+}
+
+function renderBaseConnectors() {
+  const g = document.getElementById('base-connectors');
+  g.innerHTML = '';
+  BASE_CONNECTIONS.forEach(c => {
+    const from = getNodePos(c.from), to = getNodePos(c.to);
+    const board   = BOARDS.find(b => b.id === (c.to === 'aat' ? c.from : c.to));
+    const cluster = board ? CLUSTERS[board.cluster] : null;
+    g.appendChild(svgEl('line', {
+      x1: from.x, y1: from.y, x2: to.x, y2: to.y,
+      stroke: cluster ? cluster.color : '#9CA3AF',
+      'stroke-width': 1.5, opacity: 0.18, class: 'base-connector',
+      'data-from': c.from, 'data-to': c.to,
+    }));
+  });
+}
+
+function renderNodes() {
+  const g = document.getElementById('nodes');
+  g.innerHTML = '';
+
+  // ── AAT centre ──
+  const aatG = svgEl('g', { class:'node-wrap', 'data-id':'aat', transform:`translate(${CENTRE.x},${CENTRE.y})` });
+  aatG.appendChild(svgEl('circle', { r: 72, fill: '#1B4332', class:'node-card' }));
+  aatG.appendChild(svgEl('circle', { r: 82, fill:'none', stroke:'#1B4332', 'stroke-width':2, opacity:0.12 }));
+  // Guide ring removed — AAT pills now sit side-by-side with board pills
+  const aatLabels = [['Artist Advancing', -11], ['Tracker', 7], ['150 fields · HUB', 25]];
+  aatLabels.forEach(([txt, y], i) => {
+    const t = svgEl('text', { y, fill: i === 2 ? 'rgba(255,255,255,0.45)' : 'white', class: i === 2 ? 'node-label-sub' : 'node-label-main' });
+    t.textContent = txt;
+    aatG.appendChild(t);
+  });
+  aatG.addEventListener('click', collapseAll);
+  aatG.addEventListener('mouseenter', e => showTip(e, 'Artist Advancing Tracker', 'Central hub · click to collapse all', '150 fields'));
+  aatG.addEventListener('mouseleave', hideTip);
+  g.appendChild(aatG);
+
+  // ── Satellite boards ──
+  BOARDS.forEach(board => {
+    const pos     = getNodePos(board.id);
+    const cluster = CLUSTERS[board.cluster];
+    const lines   = board.label.split('\n');
+    const rw = 96, rh = lines.length > 1 ? 52 : 42;
+    const isExp   = expandedBoard === board.id;
+
+    const node = svgEl('g', { class:'node-wrap', 'data-id':board.id, transform:`translate(${pos.x},${pos.y})` });
+
+    node.appendChild(svgEl('rect', {
+      x:-rw/2, y:-rh/2, width:rw, height:rh, rx:10,
+      fill:   isExp ? cluster.light : (board.isNew ? 'white' : cluster.light),
+      stroke: isExp ? cluster.color : (board.isNew ? '#D1D5DB' : cluster.color),
+      'stroke-width': isExp ? 3.5 : (board.isNew ? 1.5 : 2.5),
+      'stroke-dasharray': (board.isNew && !isExp) ? '6,3' : 'none',
+      class:'node-card',
+    }));
+    node.appendChild(svgEl('rect', { x:-rw/2, y:-rh/2, width:rw, height:5, rx:10, fill:cluster.color, opacity: board.isNew ? 0.5 : 1 }));
+
+    lines.forEach((line, li) => {
+      const yOff = lines.length > 1 ? (li === 0 ? -10 : 7) : -2;
+      const t = svgEl('text', { y:yOff, fill: board.isNew ? '#374151' : cluster.color, class:'node-label-main', 'font-size':11.5 });
+      t.textContent = line;
+      node.appendChild(t);
+    });
+
+    const fc = svgEl('text', { y: lines.length > 1 ? 22 : 15, fill: board.isNew ? '#9CA3AF' : cluster.color, class:'node-count', opacity:0.7 });
+    fc.textContent = `${board.fields} fields`;
+    node.appendChild(fc);
+
+    if (board.isNew) {
+      node.appendChild(svgEl('rect', { x:rw/2-26, y:-rh/2-10, width:24, height:13, rx:7, fill:cluster.color, opacity:0.85 }));
+      const nt = svgEl('text', { x:rw/2-14, y:-rh/2-3, fill:'white', 'font-size':7.5, 'font-weight':700, 'text-anchor':'middle' });
+      nt.textContent = 'NEW'; node.appendChild(nt);
+    }
+
+    node.addEventListener('click', () => toggleBoard(board.id));
+    node.addEventListener('mouseenter', e => showTip(e,
+      board.label.replace('\n',' '),
+      `${cluster.label} · ${board.isNew ? 'New EC12' : 'Existing'} · ${board.fields} fields`,
+      'Click to expand fields'
+    ));
+    node.addEventListener('mouseleave', hideTip);
+    g.appendChild(node);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER — FIELD PILLS + CONNECTORS
+// ═══════════════════════════════════════════════════════════════
+function renderFieldLayer() {
+  document.getElementById('field-pills').innerHTML = '';
+  document.getElementById('field-connectors').innerHTML = '';
+  if (!expandedBoard || fieldMode === 'none') return;
+  fieldMode === 'connected' ? renderConnected() : renderFieldList();
+}
+
+function renderConnected() {
+  const fpg   = document.getElementById('field-pills');
+  const fcg   = document.getElementById('field-connectors');
+  const board = BOARDS.find(b => b.id === expandedBoard);
+  if (!board) return;
+  const cluster = CLUSTERS[board.cluster];
+  const conns   = FIELD_CONNECTIONS.filter(c => c.boardId === expandedBoard);
+  if (!conns.length) return;
+
+  const bp = boardPillPositions(expandedBoard, conns.length);
+  const ap = aatPillPositions(expandedBoard, conns.length);
+
+  // Determine which column is left / right for header labels
+  const isRightHalf = ap[0].x < bp[0].x; // AAT is to the left → board is on right
+
+  // ── Column header labels ──
+  const aatLabelX = ap[0].x;
+  const brdLabelX = bp[0].x;
+  const labelY    = Math.min(...ap.map(p=>p.y), ...bp.map(p=>p.y)) - PILL_H/2 - 18;
+
+  const aatHdr = svgEl('text', { x:aatLabelX, y:labelY, fill:'#52B788', 'font-family':"'DM Sans',sans-serif", 'font-size':11, 'font-weight':700, 'text-anchor':'middle', 'letter-spacing':'0.5' });
+  aatHdr.textContent = 'ARTIST ADVANCING TRACKER';
+  fcg.appendChild(aatHdr);
+
+  const brdHdr = svgEl('text', { x:brdLabelX, y:labelY, fill: cluster.color, 'font-family':"'DM Sans',sans-serif", 'font-size':11, 'font-weight':700, 'text-anchor':'middle', 'letter-spacing':'0.5' });
+  brdHdr.textContent = board.label.replace('\n',' ').toUpperCase();
+  fcg.appendChild(brdHdr);
+
+  // ── Vertical spine lines behind each column ──
+  const minY = labelY + 10;
+  const maxY = Math.max(...ap.map(p=>p.y), ...bp.map(p=>p.y)) + PILL_H/2 + 6;
+
+  fcg.appendChild(svgEl('line', { x1:aatLabelX, y1:minY, x2:aatLabelX, y2:maxY, stroke:'#1B4332', 'stroke-width':0.8, opacity:0.12 }));
+  fcg.appendChild(svgEl('line', { x1:brdLabelX, y1:minY, x2:brdLabelX, y2:maxY, stroke:cluster.color, 'stroke-width':0.8, opacity:0.12 }));
+
+  // ── Elbow from board node to column ──
+  const p      = POS[expandedBoard];
+  const rad    = toRad(p.angle - 90);
+  const rx     = Math.cos(rad), ry = Math.sin(rad);
+  const edgeX  = CENTRE.x + rx * (p.r + 52);
+  const edgeY  = CENTRE.y + ry * (p.r + 52);
+  const anchorX= CENTRE.x + rx * (p.r + BOARD_PILL_DIST);
+  const anchorY= CENTRE.y + ry * (p.r + BOARD_PILL_DIST);
+
+  fcg.appendChild(svgEl('line', { x1:edgeX, y1:edgeY, x2:anchorX, y2:anchorY, stroke:cluster.color, 'stroke-width':1.5, opacity:0.25 }));
+  fcg.appendChild(svgEl('circle', { cx:anchorX, cy:anchorY, r:3, fill:cluster.color, opacity:0.4 }));
+
+  // ── Per-row connector + pills ──
+  conns.forEach((conn, i) => {
+    const bPos = bp[i], aPos = ap[i];
+    const ft   = FT[conn.type] || FT.input;
+
+    // Connector line — horizontal between right edge of left pill and left edge of right pill
+    const leftX  = Math.min(aPos.x, bPos.x) + PILL_W/2;
+    const rightX = Math.max(aPos.x, bPos.x) - PILL_W/2;
+    const lineY  = aPos.y; // same y
+
+    const line = svgEl('line', {
+      x1: leftX, y1: lineY, x2: rightX, y2: lineY,
+      stroke: conn.type === 'key' ? '#1D4ED8' : '#7C3AED',
+      'stroke-width': 1.5,
+      'stroke-dasharray': conn.type === 'mirror' ? '6,4' : 'none',
+      opacity: 0.35, class:'field-connector',
+    });
+    line.addEventListener('mouseenter', e => {
+      line.setAttribute('opacity', 1);
+      line.setAttribute('stroke-width', 3);
+      showTip(e,
+        `${conn.aatName}  ↔  ${conn.boardName}`,
+        conn.type === 'key' ? '↔ board relation' : '⟵ mirror field',
+        `AAT: ${conn.aatFid}  ·  Board: ${conn.boardFid}`
+      );
+    });
+    line.addEventListener('mouseleave', () => {
+      line.setAttribute('opacity', 0.35);
+      line.setAttribute('stroke-width', 1.5);
+      hideTip();
+    });
+    fcg.appendChild(line);
+
+    // Board pill
+    fpg.appendChild(makeBox(bPos, conn.boardName, conn.type, cluster.color, false,
+      e => showTip(e, conn.boardName, `${board.label.replace('\n',' ')}`, `${conn.type}  ·  ${conn.boardFid}`)
+    ));
+
+    // AAT pill
+    fpg.appendChild(makeBox(aPos, conn.aatName, conn.type, '#1B4332', true,
+      e => showTip(e, conn.aatName, 'Artist Advancing Tracker', `${conn.type}  ·  ${conn.aatFid}`)
+    ));
+  });
+}
+
+function renderFieldList() {
+  const fpg   = document.getElementById('field-pills');
+  const fcg   = document.getElementById('field-connectors');
+  const board = BOARDS.find(b => b.id === expandedBoard);
+  if (!board) return;
+  const cluster = CLUSTERS[board.cluster];
+  let fields    = BOARD_FIELDS[expandedBoard] || [];
+
+  if (fieldMode === 'input') {
+    fields = fields.filter(f => ['input','status','date','people','file'].includes(f.type));
+  }
+
+  const positions = singleColumnPositions(expandedBoard, fields.length);
+
+  // Column header
+  const labelY = (positions[0]?.y ?? 0) - PILL_H/2 - 18;
+  const labelX = positions[0]?.x ?? 0;
+  const hdr = svgEl('text', { x:labelX, y:labelY, fill:cluster.color, 'font-family':"'DM Sans',sans-serif", 'font-size':11, 'font-weight':700, 'text-anchor':'middle', 'letter-spacing':'0.5' });
+  hdr.textContent = board.label.replace('\n',' ').toUpperCase();
+  fcg.appendChild(hdr);
+
+  // Spine
+  const maxY = (positions[positions.length-1]?.y ?? 0) + PILL_H/2;
+  fcg.appendChild(svgEl('line', { x1:labelX, y1:labelY+10, x2:labelX, y2:maxY, stroke:cluster.color, 'stroke-width':0.8, opacity:0.12 }));
+
+  // Elbow from board node
+  const p = POS[expandedBoard];
+  const rad = toRad(p.angle - 90);
+  const rx = Math.cos(rad), ry = Math.sin(rad);
+  fcg.appendChild(svgEl('line', {
+    x1: CENTRE.x + rx*(p.r+52), y1: CENTRE.y + ry*(p.r+52),
+    x2: CENTRE.x + rx*(p.r+BOARD_PILL_DIST), y2: CENTRE.y + ry*(p.r+BOARD_PILL_DIST),
+    stroke: cluster.color, 'stroke-width':1.5, opacity:0.25,
+  }));
+
+  fields.forEach((field, i) => {
+    fpg.appendChild(makeBox(positions[i], field.name, field.type, cluster.color, false,
+      e => showTip(e, field.name, `Type: ${field.type}`, field.fid)
+    ));
+  });
+}
+
+// makeBox — minimalist rectangular field box
+// isAat: dark green background, white text
+// !isAat: white/tinted background, left accent border, colored text
+function makeBox(pos, name, type, accentColor, isAat, onEnter) {
+  const ft  = FT[type] || FT.input;
+  const pw  = PILL_W, ph = PILL_H, r = PILL_R;
+  const g   = svgEl('g', { class:'field-box', transform:`translate(${pos.x},${pos.y})` });
+
+  if (isAat) {
+    // Dark green box — solid fill, white text
+    g.appendChild(svgEl('rect', {
+      x:-pw/2, y:-ph/2, width:pw, height:ph, rx:r,
+      fill: '#1B4332',
+    }));
+    // Left accent strip
+    g.appendChild(svgEl('rect', {
+      x:-pw/2, y:-ph/2, width:4, height:ph, rx:r,
+      fill: '#52B788',
+    }));
+    // Icon
+    const icon = svgEl('text', {
+      x: -pw/2 + 16, y: 1,
+      'font-size': 11, 'text-anchor':'middle', 'dominant-baseline':'middle',
+      'pointer-events':'none', fill:'#52B788', 'font-weight':700,
+    });
+    icon.textContent = ft.icon;
+    g.appendChild(icon);
+    // Label
+    const label = svgEl('text', {
+      x: -pw/2 + 30, y: 1,
+      'font-family':"'DM Sans',sans-serif", 'font-size':14, 'font-weight':500,
+      'dominant-baseline':'middle', 'pointer-events':'none',
+      fill: 'rgba(255,255,255,0.92)',
+    });
+    label.textContent = trunc(name, 22);
+    g.appendChild(label);
+  } else {
+    // White box — thin border, colored left strip, field-type tinted background
+    g.appendChild(svgEl('rect', {
+      x:-pw/2, y:-ph/2, width:pw, height:ph, rx:r,
+      fill: ft.bg,
+      stroke: accentColor, 'stroke-width': 1, 'stroke-opacity': 0.3,
+    }));
+    // Left accent strip
+    g.appendChild(svgEl('rect', {
+      x:-pw/2, y:-ph/2, width:4, height:ph, rx:r,
+      fill: accentColor, opacity: 0.85,
+    }));
+    // Icon
+    const icon = svgEl('text', {
+      x: -pw/2 + 16, y: 1,
+      'font-size': 11, 'text-anchor':'middle', 'dominant-baseline':'middle',
+      'pointer-events':'none', fill: ft.text, 'font-weight':700,
+    });
+    icon.textContent = ft.icon;
+    g.appendChild(icon);
+    // Label
+    const label = svgEl('text', {
+      x: -pw/2 + 30, y: 1,
+      'font-family':"'DM Sans',sans-serif", 'font-size':14, 'font-weight':500,
+      'dominant-baseline':'middle', 'pointer-events':'none',
+      fill: ft.text,
+    });
+    label.textContent = trunc(name, 22);
+    g.appendChild(label);
+  }
+
+  g.style.cursor = 'default';
+  if (onEnter) {
+    g.addEventListener('mouseenter', onEnter);
+    g.addEventListener('mouseleave', hideTip);
+  }
+  return g;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ═══════════════════════════════════════════════════════════════
+function toggleBoard(id) {
+  expandedBoard = (expandedBoard === id) ? null : id;
+  renderNodes();
+  renderFieldLayer();
+}
+
+function collapseAll() {
+  expandedBoard = null;
+  renderNodes();
+  renderFieldLayer();
+}
+
+function setFieldMode(mode) {
+  fieldMode = mode;
+  document.querySelectorAll('.btn-mode').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+
+  const legend = document.getElementById('field-legend');
+  legend.classList.toggle('visible', mode === 'all' || mode === 'input');
+
+  const msgs = {
+    connected: 'Click any board to expand its connected fields — both AAT and the linked board unfurl simultaneously',
+    input:     'Click any board to see its direct input fields (colour-coded by type)',
+    all:       'Click any board to see all fields — inputs, keys, mirrors and formulas',
+    none:      'Overview mode — board-level connections only, no field detail',
+  };
+  document.getElementById('instructions').textContent = msgs[mode] || '';
+
+  renderNodes();
+  renderFieldLayer();
+}
+
+function setFilter(mode) {
+  filterMode = mode;
+  document.querySelectorAll('.btn-ctrl').forEach(b => b.classList.remove('active'));
+  document.getElementById(`btn-${mode}`).classList.add('active');
+  BOARDS.forEach(board => {
+    const el = document.querySelector(`.node-wrap[data-id="${board.id}"]`);
+    if (!el) return;
+    if (mode === 'all') el.setAttribute('opacity', 1);
+    else if (mode === 'existing') el.setAttribute('opacity', board.isNew ? 0.12 : 1);
+    else if (mode === 'new')      el.setAttribute('opacity', board.isNew ? 1 : 0.12);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TOOLTIP
+// ═══════════════════════════════════════════════════════════════
+const tooltip = document.getElementById('tooltip');
+function showTip(e, name, sub, fid) {
+  tooltip.innerHTML = `<strong>${name}</strong><span class="tt-sub">${sub||''}</span>${fid ? `<span class="tt-fid">${fid}</span>` : ''}`;
+  tooltip.classList.add('visible');
+}
+function hideTip() { tooltip.classList.remove('visible'); }
+document.addEventListener('mousemove', e => {
+  tooltip.style.left = (e.clientX + 14) + 'px';
+  tooltip.style.top  = (e.clientY - 8) + 'px';
+});
+
+// ═══════════════════════════════════════════════════════════════
+// ZOOM & PAN ENGINE
+// ═══════════════════════════════════════════════════════════════
+const surface  = document.getElementById('zoom-surface');
+const wrap     = document.getElementById('canvas-wrap');
+const zoomLbl  = document.getElementById('zoom-label');
+
+const Z = {
+  scale: 1,
+  tx: 0,        // translation x (px)
+  ty: 0,        // translation y (px)
+  minScale: 0.15,
+  maxScale: 6,
+  animating: false,
+};
+
+function applyTransform(animate = false) {
+  surface.style.transition = animate ? 'transform 0.38s cubic-bezier(0.25,0.8,0.25,1)' : 'none';
+  surface.style.transform  = `translate(${Z.tx}px, ${Z.ty}px) scale(${Z.scale})`;
+  zoomLbl.textContent      = Math.round(Z.scale * 100) + '%';
+}
+
+// Zoom toward a point (cx, cy) in viewport coords
+function zoomToward(cx, cy, factor) {
+  const newScale = Math.min(Z.maxScale, Math.max(Z.minScale, Z.scale * factor));
+  const ratio    = newScale / Z.scale;
+  Z.tx    = cx - ratio * (cx - Z.tx);
+  Z.ty    = cy - ratio * (cy - Z.ty);
+  Z.scale = newScale;
+  applyTransform();
+}
+
+function zoomBy(factor) {
+  const r = wrap.getBoundingClientRect();
+  zoomToward(r.left + r.width / 2, r.top + r.height / 2, factor);
+}
+
+function zoomReset() {
+  const r   = wrap.getBoundingClientRect();
+  const svg = document.getElementById('diagram');
+  const svgW = svg.getBoundingClientRect().width || 1600;
+  // Fit the full SVG width into the viewport
+  const targetScale = r.width / 1600;
+  Z.scale = Math.min(Z.maxScale, Math.max(Z.minScale, targetScale));
+  Z.tx = (r.width  - 1600 * Z.scale) / 2;
+  Z.ty = (r.height - 1600 * (3054/2688) * Z.scale) / 2;  // approx height ratio
+  applyTransform(true);
+}
+
+// ── Double-click to zoom into a board ────────────────────────
+// boardId → centre of its node in SVG coords → convert to viewport → zoom
+function zoomToBoard(boardId) {
+  const svgEl  = document.getElementById('diagram');
+  const vbParts = svgEl.getAttribute('viewBox').split(' ').map(Number);
+  const [vbX, vbY, vbW, vbH] = vbParts;
+  const svgRect = svgEl.getBoundingClientRect();
+
+  // SVG user-space position of board node
+  const pos = getNodePos(boardId);  // {x, y} in SVG user-space
+
+  // Map SVG user-space → viewport pixels
+  const scaleX = svgRect.width  / vbW;
+  const scaleY = svgRect.height / vbH;
+  const vpx = svgRect.left + (pos.x - vbX) * scaleX;
+  const vpy = svgRect.top  + (pos.y - vbY) * scaleY;
+
+  const wrapRect = wrap.getBoundingClientRect();
+  const targetScale = Math.min(Z.maxScale, 2.2);
+  const ratio = targetScale / Z.scale;
+  Z.tx    = (vpx - wrapRect.left) * (1 - ratio) + Z.tx;
+  Z.ty    = (vpy - wrapRect.top)  * (1 - ratio) + Z.ty;
+  Z.scale = targetScale;
+  applyTransform(true);
+}
+
+// ── Pinch zoom (trackpad / mobile) ───────────────────────────
+let lastPinchDist = null;
+let lastPinchMid  = null;
+
+wrap.addEventListener('touchstart', e => {
+  if (e.touches.length === 2) {
+    lastPinchDist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    lastPinchMid = {
+      x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+      y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+    };
+    e.preventDefault();
+  }
+}, { passive: false });
+
+wrap.addEventListener('touchmove', e => {
+  if (e.touches.length === 2 && lastPinchDist !== null) {
+    const dist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    const mid = {
+      x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+      y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+    };
+    const factor = dist / lastPinchDist;
+    zoomToward(mid.x, mid.y, factor);
+    // Also pan for finger movement
+    Z.tx += mid.x - lastPinchMid.x;
+    Z.ty += mid.y - lastPinchMid.y;
+    applyTransform();
+    lastPinchDist = dist;
+    lastPinchMid  = mid;
+    e.preventDefault();
+  }
+}, { passive: false });
+
+wrap.addEventListener('touchend', () => {
+  lastPinchDist = null;
+  lastPinchMid  = null;
+});
+
+// Trackpad pinch sends wheel events with ctrlKey=true
+wrap.addEventListener('wheel', e => {
+  e.preventDefault();
+  const factor = e.ctrlKey
+    ? Math.pow(0.995, e.deltaY)   // pinch gesture (trackpad)
+    : e.deltaY < 0 ? 1.1 : 0.91; // regular scroll wheel
+  zoomToward(e.clientX, e.clientY, factor);
+}, { passive: false });
+
+// ── Click + drag to pan ───────────────────────────────────────
+let drag = { active: false, startX: 0, startY: 0, startTx: 0, startTy: 0 };
+
+wrap.addEventListener('mousedown', e => {
+  // Don't start drag on node clicks
+  if (e.target.closest('.node-wrap, .field-box, .field-connector')) return;
+  drag.active = true;
+  drag.startX = e.clientX;
+  drag.startY = e.clientY;
+  drag.startTx = Z.tx;
+  drag.startTy = Z.ty;
+  wrap.classList.add('panning');
+});
+
+window.addEventListener('mousemove', e => {
+  if (!drag.active) return;
+  Z.tx = drag.startTx + (e.clientX - drag.startX);
+  Z.ty = drag.startTy + (e.clientY - drag.startY);
+  applyTransform();
+});
+
+window.addEventListener('mouseup', () => {
+  drag.active = false;
+  wrap.classList.remove('panning');
+});
+
+// ── Double-click on board node to zoom in ─────────────────────
+// Hooked into renderNodes via data attribute — listen at wrap level
+wrap.addEventListener('dblclick', e => {
+  const nodeEl = e.target.closest('.node-wrap');
+  if (!nodeEl) return;
+  const id = nodeEl.getAttribute('data-id');
+  if (id && id !== 'aat') {
+    e.stopPropagation();
+    zoomToBoard(id);
+  } else if (id === 'aat') {
+    zoomReset();
+  }
+});
+
+// ── Init: fit diagram to viewport on load ────────────────────
+window.addEventListener('load', () => {
+  // Small delay to let layout settle
+  setTimeout(zoomReset, 80);
+});
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+renderBase();
+</script>
+</body>
+</html>
